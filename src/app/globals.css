@@ -1,26 +1,115 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff;
+      color: #0f172a;
+      font-family: var(--font-inter), sans-serif;
+      overflow: hidden;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.viewport {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.stage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.page-wrapper {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.page {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    will-change: transform, opacity;
+}
+
+/* 隐藏滚动条 */
+.page::-webkit-scrollbar {
+  display: none;
+}
+.page {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.page-1 { background: radial-gradient(circle at 10% 40%, #111a30 0%, #060913 70%); }
+.page-2 { background: radial-gradient(circle at 90% 60%, #161a2b 0%, #060913 70%); }
+
+.hero-title {
+    font-family: var(--font-playfair), serif;
+    font-style: italic;
+    font-size: clamp(4rem, 10vw, 11rem);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+}
+
+.motion-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: #fff;
+    opacity: 0;
+    z-index: 500;
+}
+
+/* Product HTML Content Formatting */
+.product-html-content {
+  color: #334155;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+.product-html-content h1, 
+.product-html-content h2, 
+.product-html-content h3 {
+  color: #0f172a;
+  font-weight: 800;
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+.product-html-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  margin: 2rem auto;
+  display: block;
+}
+.product-html-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 0.875rem;
+}
+.product-html-content th, 
+.product-html-content td {
+  border: 1px solid #e2e8f0;
+  padding: 1rem;
+  text-align: left;
+}
+.product-html-content th {
+  background-color: #f8fafc;
+  font-weight: 700;
+  color: #0f172a;
+}
+.product-html-content p {
+  margin-bottom: 1.25rem;
 }
