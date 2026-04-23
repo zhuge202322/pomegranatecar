@@ -11,7 +11,7 @@ const categoryCards = categories.map(cat => {
   const product = productsData.find((p: any) => p.Category === cat && p.Thumbnail);
   return {
     name: cat as string,
-    image: product ? product.Thumbnail : 'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=2072&auto=format&fit=crop', // 默认海滩图兜底
+    image: product ? product.Thumbnail : '/img/application2.webp', // 默认海滩图兜底
   };
 });
 
@@ -20,7 +20,7 @@ const servicesData = [
   {
     title: "Regarding Product Development",
     desc: "NIUDIAN Automobile adheres to independent research and development, continuously exploring the frontiers of intelligent electric mobility and crafting highly competitive product matrices.",
-    img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop",
+    img: "/img/vehicle-oem-customization.webp",
     icon: (
       <svg className="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
@@ -40,7 +40,7 @@ const servicesData = [
   {
     title: "Regarding Vehicle Delivery",
     desc: "A globally integrated logistics and delivery system guarantees that your vehicles arrive safely, punctually, and ready for deployment.",
-    img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop",
+    img: "/img/canton-fair.webp",
     icon: (
       <svg className="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -65,7 +65,7 @@ const scenariosData = [
   {
     id: "01",
     title: "NIUDIAN pickup truck, taking you beyond your dreams",
-    bgImg: "https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?q=80&w=2070&auto=format&fit=crop",
+    bgImg: "/img/application4-1.webp",
     icon: (
       <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
@@ -75,7 +75,7 @@ const scenariosData = [
   {
     id: "02",
     title: "Resort mobility, elegant and comfortable experiences",
-    bgImg: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=2072&auto=format&fit=crop",
+    bgImg: "/img/application2.webp",
     icon: (
       <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
@@ -85,7 +85,7 @@ const scenariosData = [
   {
     id: "03",
     title: "Urban logistics, efficient and eco-friendly delivery",
-    bgImg: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop",
+    bgImg: "/img/shipfnegmian-1.webp",
     icon: (
       <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -452,7 +452,7 @@ export default function Home() {
                     {/* 左侧：企业工厂图片 */}
                     <div className="w-full lg:w-[55%] relative rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)] group">
                       <img 
-                        src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" 
+                        src="/img/canton-fair.webp" 
                         alt="Factory Building" 
                         className="w-full h-auto aspect-[16/10] object-cover transform group-hover:scale-105 transition-transform duration-1000 ease-out" 
                       />
@@ -497,7 +497,7 @@ export default function Home() {
                         {/* 右侧视频封面 */}
                         <div className="relative flex-1 aspect-[16/9]">
                           <img 
-                            src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?q=80&w=600&auto=format&fit=crop" 
+                            src="/img/multiple-new-products-1.webp" 
                             alt="Corporate Video" 
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
                           />
@@ -845,7 +845,7 @@ export default function Home() {
                 {/* 顶部 Banner */}
                 <div className="relative w-full h-[45vh] bg-[#0a0f1c] flex items-center justify-center overflow-hidden shrink-0 mt-24">
                   <div className="absolute inset-0 bg-black/40 z-10"></div>
-                  <img src="https://images.unsplash.com/photo-1551522435-a13afa10f103?q=80&w=2070&auto=format&fit=crop" alt="Products Banner" className="absolute inset-0 w-full h-full object-cover opacity-60" />
+                  <img src="/img/banner.png" alt="Products Banner" className="absolute inset-0 w-full h-full object-cover opacity-60" />
                   <div className="relative z-20 text-center px-12">
                     <span className="text-red-500 font-bold tracking-[0.3em] uppercase text-xs mb-6 block">Explore Our Fleet</span>
                     <h1 className="text-5xl md:text-7xl font-black italic font-[family-name:var(--font-playfair)] text-white mb-6 drop-shadow-lg">
@@ -949,7 +949,7 @@ export default function Home() {
                     <div className="relative w-full h-[60vh] bg-[#0a0f1c] flex items-center justify-center overflow-hidden shrink-0 mt-24">
                       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[#0a0f1c] z-10"></div>
                       <img 
-                        src={selectedProduct.Thumbnail || 'https://images.unsplash.com/photo-1551522435-a13afa10f103?q=80&w=2070&auto=format&fit=crop'} 
+                        src={selectedProduct.Thumbnail || '/img/banner.png'} 
                         alt={selectedProduct['Product Name']} 
                         className="absolute inset-0 w-full h-full object-cover opacity-50 blur-sm scale-105" 
                       />
@@ -1065,7 +1065,7 @@ export default function Home() {
                 {/* About 顶部 Banner */}
                 <div className="relative w-full h-[50vh] bg-[#0a0f1c] flex items-center justify-center overflow-hidden shrink-0 mt-24">
                   <div className="absolute inset-0 bg-black/50 z-10"></div>
-                  <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" alt="About Us Banner" className="absolute inset-0 w-full h-full object-cover opacity-60" />
+                  <img src="/img/banner.png" alt="About Us Banner" className="absolute inset-0 w-full h-full object-cover opacity-60" />
                   <div className="relative z-20 text-center px-12">
                     <span className="text-red-500 font-bold tracking-[0.3em] uppercase text-xs mb-6 block">Our Heritage & Vision</span>
                     <h1 className="text-5xl md:text-7xl font-black italic font-[family-name:var(--font-playfair)] text-white mb-6 drop-shadow-lg">
@@ -1080,7 +1080,7 @@ export default function Home() {
                   <div className="w-full max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-16 items-center">
                     {/* 左侧：企业大楼/生产基地展示 */}
                     <div className="w-full lg:w-1/2 relative group rounded-[2.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)]">
-                      <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" alt="Company HQ" className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-1000 ease-out" />
+                      <img src="/img/canton-fair.webp" alt="Company HQ" className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-1000 ease-out" />
                       <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-700"></div>
                     </div>
                     {/* 右侧：详细介绍与数据统计 */}
@@ -1200,7 +1200,7 @@ export default function Home() {
                 {/* Services 顶部 Banner */}
                 <div className="relative w-full h-[50vh] bg-[#0a0f1c] flex items-center justify-center overflow-hidden shrink-0 mt-24">
                   <div className="absolute inset-0 bg-black/50 z-10"></div>
-                  <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=2070&auto=format&fit=crop" alt="Services Banner" className="absolute inset-0 w-full h-full object-cover opacity-60" />
+                  <img src="/img/banner.png" alt="Services Banner" className="absolute inset-0 w-full h-full object-cover opacity-60" />
                   <div className="relative z-20 text-center px-12">
                     <span className="text-red-500 font-bold tracking-[0.3em] uppercase text-xs mb-6 block">End-To-End Support</span>
                     <h1 className="text-5xl md:text-7xl font-black italic font-[family-name:var(--font-playfair)] text-white mb-6 drop-shadow-lg">
@@ -1298,7 +1298,7 @@ export default function Home() {
                 {/* Contact 顶部 Banner */}
                 <div className="relative w-full h-[50vh] bg-[#0a0f1c] flex items-center justify-center overflow-hidden shrink-0 mt-24">
                   <div className="absolute inset-0 bg-black/60 z-10"></div>
-                  <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop" alt="Contact Banner" className="absolute inset-0 w-full h-full object-cover opacity-60" />
+                  <img src="/img/canton-fair.webp" alt="Contact Banner" className="absolute inset-0 w-full h-full object-cover opacity-60" />
                   <div className="relative z-20 text-center px-12">
                     <span className="text-red-500 font-bold tracking-[0.3em] uppercase text-xs mb-6 block">We're Here to Help</span>
                     <h1 className="text-5xl md:text-7xl font-black italic font-[family-name:var(--font-playfair)] text-white mb-6 drop-shadow-lg">
