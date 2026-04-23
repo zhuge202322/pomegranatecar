@@ -313,6 +313,7 @@ export default function Home() {
                         <div 
                           key={idx} 
                           className="text-sm text-slate-600 hover:text-red-600 hover:translate-x-1 transition-all duration-300 cursor-pointer capitalize font-semibold tracking-normal"
+                          onClick={() => { setActiveCategory(cat as string); transitionTo('products'); }}
                         >
                           {cat as string}
                         </div>
@@ -413,7 +414,11 @@ export default function Home() {
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 w-full max-w-[1600px]">
                     {categoryCards.map((cat, idx) => (
-                      <div key={idx} className="group relative w-full aspect-[4/5] cursor-pointer">
+                      <div 
+                        key={idx} 
+                        className="group relative w-full aspect-[4/5] cursor-pointer"
+                        onClick={() => { setActiveCategory(cat.name); transitionTo('products'); }}
+                      >
                         <div className="absolute inset-0 rounded-3xl overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.1)] bg-white transition-all duration-700 group-hover:scale-[1.02] group-hover:shadow-[0_20px_50px_rgba(220,38,38,0.15)] group-hover:border group-hover:border-red-600/20">
                           {/* 背景图：产品品类代表图，悬停时完全清晰 */}
                           <img 
