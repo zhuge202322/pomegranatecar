@@ -409,7 +409,7 @@ export default function Home() {
                 {/* 第二屏：Product Series 分类展示区 (Light Theme) */}
                 <div className="relative w-full bg-slate-50 py-40 px-12 z-20 flex flex-col items-center">
                   <div className="text-[10px] text-red-600 tracking-[0.4em] uppercase mb-6 font-bold">Discover Excellence</div>
-                  <h2 className="text-[clamp(3rem,6vw,5rem)] font-black italic font-[family-name:var(--font-playfair)] text-slate-900 mb-24 text-center tracking-tighter leading-none">
+                  <h2 className="text-[clamp(3rem,6vw,5rem)] font-black font-yahei text-slate-900 mb-24 text-center tracking-tighter leading-none">
                     Products.
                   </h2>
                   
@@ -489,7 +489,7 @@ export default function Home() {
                 {/* Our Services 卡片区 */}
                 <div className="relative w-full bg-white py-32 px-12 z-20 flex flex-col items-center">
                   <div className="text-[10px] text-red-600 tracking-[0.4em] uppercase mb-6 font-bold">What We Offer</div>
-                  <h2 className="text-[clamp(2.5rem,5vw,4rem)] font-black italic font-[family-name:var(--font-playfair)] text-slate-900 mb-20 text-center tracking-tighter leading-none">
+                  <h2 className="text-[clamp(2.5rem,5vw,4rem)] font-black font-yahei text-slate-900 mb-20 text-center tracking-tighter leading-none">
                     Our Services.
                   </h2>
 
@@ -613,7 +613,7 @@ export default function Home() {
                     {/* 左侧：联系信息与标语 */}
                     <div className="w-full lg:w-[40%] flex flex-col items-start justify-center">
                       <span className="text-xs font-bold text-red-600 tracking-[0.3em] uppercase mb-6">Contact Us</span>
-                      <h2 className="text-4xl md:text-6xl font-black italic font-[family-name:var(--font-playfair)] text-slate-900 mb-8 tracking-tighter leading-tight">
+                      <h2 className="text-4xl md:text-6xl font-black font-yahei text-slate-900 mb-8 tracking-tighter leading-tight">
                         Let's Start a<br/>Conversation.
                       </h2>
                       <p className="text-slate-600 leading-relaxed mb-12 text-sm md:text-base font-medium max-w-md">
@@ -728,7 +728,7 @@ export default function Home() {
                   <img src="/img/banner.png" alt="Products Banner" className="absolute inset-0 w-full h-full object-cover opacity-60" />
                   <div className="relative z-20 text-center px-12">
                     <span className="text-red-500 font-bold tracking-[0.3em] uppercase text-xs mb-6 block">Explore Our Fleet</span>
-                    <h1 className="text-5xl md:text-7xl font-black italic font-[family-name:var(--font-playfair)] text-white mb-6 drop-shadow-lg">
+                    <h1 className="text-5xl md:text-7xl font-black font-yahei text-white mb-6 drop-shadow-lg">
                       Our Products.
                     </h1>
                     <div className="w-20 h-1 bg-red-600 mx-auto rounded-full"></div>
@@ -963,7 +963,7 @@ export default function Home() {
                         </div>
 
                         <span className="text-red-500 font-bold tracking-[0.3em] uppercase text-xs mb-6 block">{selectedServiceDetail.tagline}</span>
-                        <h1 className="text-4xl md:text-6xl font-black italic font-[family-name:var(--font-playfair)] text-white mb-6 tracking-tight max-w-4xl leading-tight drop-shadow-2xl">
+                        <h1 className="text-4xl md:text-6xl font-black font-yahei text-white mb-6 tracking-tight max-w-4xl leading-tight drop-shadow-2xl">
                           {selectedServiceDetail.title}.
                         </h1>
                         <div className="w-20 h-1 bg-red-600 mx-auto rounded-full"></div>
@@ -1025,7 +1025,7 @@ export default function Home() {
                   <img src="/img/banner.png" alt="About Us Banner" className="absolute inset-0 w-full h-full object-cover opacity-60" />
                   <div className="relative z-20 text-center px-12">
                     <span className="text-red-500 font-bold tracking-[0.3em] uppercase text-xs mb-6 block">Our Heritage & Vision</span>
-                    <h1 className="text-5xl md:text-7xl font-black italic font-[family-name:var(--font-playfair)] text-white mb-6 drop-shadow-lg">
+                    <h1 className="text-5xl md:text-7xl font-black font-yahei text-white mb-6 drop-shadow-lg">
                       About Us.
                     </h1>
                     <div className="w-20 h-1 bg-red-600 mx-auto rounded-full"></div>
@@ -1160,7 +1160,7 @@ export default function Home() {
                   <img src="/img/banner.png" alt="Services Banner" className="absolute inset-0 w-full h-full object-cover opacity-60" />
                   <div className="relative z-20 text-center px-12">
                     <span className="text-red-500 font-bold tracking-[0.3em] uppercase text-xs mb-6 block">End-To-End Support</span>
-                    <h1 className="text-5xl md:text-7xl font-black italic font-[family-name:var(--font-playfair)] text-white mb-6 drop-shadow-lg">
+                    <h1 className="text-5xl md:text-7xl font-black font-yahei text-white mb-6 drop-shadow-lg">
                       Our Services.
                     </h1>
                     <div className="w-20 h-1 bg-red-600 mx-auto rounded-full"></div>
@@ -1258,7 +1258,7 @@ export default function Home() {
                   <img src="/img/canton-fair.png" alt="Contact Banner" className="absolute inset-0 w-full h-full object-cover opacity-60" />
                   <div className="relative z-20 text-center px-12">
                     <span className="text-red-500 font-bold tracking-[0.3em] uppercase text-xs mb-6 block">We're Here to Help</span>
-                    <h1 className="text-5xl md:text-7xl font-black italic font-[family-name:var(--font-playfair)] text-white mb-6 drop-shadow-lg">
+                    <h1 className="text-5xl md:text-7xl font-black font-yahei text-white mb-6 drop-shadow-lg">
                       Contact Us.
                     </h1>
                     <div className="w-20 h-1 bg-red-600 mx-auto rounded-full"></div>
@@ -1272,7 +1272,7 @@ export default function Home() {
                     {/* 左侧：联系信息与标语 */}
                     <div className="w-full lg:w-[40%] flex flex-col items-start justify-center">
                       <span className="text-xs font-bold text-red-600 tracking-[0.3em] uppercase mb-6">Get In Touch</span>
-                      <h2 className="text-4xl md:text-6xl font-black italic font-[family-name:var(--font-playfair)] text-slate-900 mb-8 tracking-tighter leading-tight">
+                      <h2 className="text-4xl md:text-6xl font-black font-yahei text-slate-900 mb-8 tracking-tighter leading-tight">
                         Let's Start a<br/>Conversation.
                       </h2>
                       <p className="text-slate-600 leading-relaxed mb-12 text-sm md:text-base font-medium max-w-md">

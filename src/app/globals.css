@@ -55,12 +55,17 @@
 .page-2 { background: radial-gradient(circle at 90% 60%, #161a2b 0%, #060913 70%); }
 
 .hero-title {
-    font-family: var(--font-playfair), serif;
-    font-style: italic;
+    font-family: "Microsoft YaHei", "微软雅黑", "PingFang SC", "Heiti SC", sans-serif;
+    font-style: normal;
     font-size: clamp(4rem, 10vw, 11rem);
     line-height: 0.9;
     letter-spacing: -0.03em;
     color: #ffffff;
+}
+
+.font-yahei {
+    font-family: "Microsoft YaHei", "微软雅黑", "PingFang SC", "Heiti SC", sans-serif;
+    font-style: normal;
 }
 
 .motion-overlay {
