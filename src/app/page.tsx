@@ -258,16 +258,16 @@ export default function Home() {
             <li className="flex items-start gap-4 group">
               <svg className="w-5 h-5 text-slate-400 group-hover:text-red-600 transition-colors duration-300 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
               <span className="text-[13px] text-slate-500 leading-relaxed font-medium group-hover:text-slate-900 transition-colors duration-300">
-                No. 99 Qingping Road, Shanting District<br/>Economic Development Zone, Zaozhuang City,<br/>Shandong Province
+                3rd Floor, Building 6,<br/>No. 18 Xueqing Road,<br/>Haidian District, Beijing
               </span>
             </li>
             <li className="flex items-center gap-4 group">
               <svg className="w-5 h-5 text-slate-400 group-hover:text-red-600 transition-colors duration-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-              <span className="text-[13px] text-slate-500 font-medium group-hover:text-slate-900 transition-colors duration-300">+86 180 8677 3915</span>
+              <span className="text-[13px] text-slate-500 font-medium group-hover:text-slate-900 transition-colors duration-300">+86 131 2107 6570</span>
             </li>
             <li className="flex items-center gap-4 group">
               <svg className="w-5 h-5 text-slate-400 group-hover:text-red-600 transition-colors duration-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-              <span className="text-[13px] text-slate-500 font-medium group-hover:text-slate-900 transition-colors duration-300">charles.ji@niudianev.com</span>
+              <span className="text-[13px] text-slate-500 font-medium group-hover:text-slate-900 transition-colors duration-300">info@pomegranateev.com</span>
             </li>
           </ul>
         </div>
@@ -628,7 +628,7 @@ export default function Home() {
                           </div>
                           <div>
                             <p className="text-[10px] text-slate-400 font-bold tracking-widest uppercase mb-1">Email Us</p>
-                            <p className="text-lg font-bold text-slate-900 group-hover:text-red-600 transition-colors">sales@niudianev.com</p>
+                            <p className="text-lg font-bold text-slate-900 group-hover:text-red-600 transition-colors">info@pomegranateev.com</p>
                           </div>
                         </div>
                         {/* Phone */}
@@ -638,7 +638,7 @@ export default function Home() {
                           </div>
                           <div>
                             <p className="text-[10px] text-slate-400 font-bold tracking-widest uppercase mb-1">Call Us</p>
-                            <p className="text-lg font-bold text-slate-900 group-hover:text-red-600 transition-colors">+86 400 123 4567</p>
+                            <p className="text-lg font-bold text-slate-900 group-hover:text-red-600 transition-colors">+86 131 2107 6570</p>
                           </div>
                         </div>
                         {/* Location */}
@@ -648,7 +648,7 @@ export default function Home() {
                           </div>
                           <div>
                             <p className="text-[10px] text-slate-400 font-bold tracking-widest uppercase mb-1">Headquarters</p>
-                            <p className="text-base font-bold text-slate-900 leading-snug group-hover:text-red-600 transition-colors">Zaozhuang City, Shandong Province,<br/>China</p>
+                            <p className="text-base font-bold text-slate-900 leading-snug group-hover:text-red-600 transition-colors">3rd Floor, Building 6, No. 18 Xueqing Road,<br/>Haidian District, Beijing</p>
                           </div>
                         </div>
                       </div>
@@ -1287,7 +1287,7 @@ export default function Home() {
                           </div>
                           <div>
                             <p className="text-[10px] text-slate-400 font-bold tracking-widest uppercase mb-1">Email Us</p>
-                            <p className="text-lg font-bold text-slate-900 group-hover:text-red-600 transition-colors">sales@niudianev.com</p>
+                            <p className="text-lg font-bold text-slate-900 group-hover:text-red-600 transition-colors">info@pomegranateev.com</p>
                           </div>
                         </div>
                         {/* Phone */}
@@ -1297,7 +1297,7 @@ export default function Home() {
                           </div>
                           <div>
                             <p className="text-[10px] text-slate-400 font-bold tracking-widest uppercase mb-1">Call Us</p>
-                            <p className="text-lg font-bold text-slate-900 group-hover:text-red-600 transition-colors">+86 400 123 4567</p>
+                            <p className="text-lg font-bold text-slate-900 group-hover:text-red-600 transition-colors">+86 131 2107 6570</p>
                           </div>
                         </div>
                         {/* Location */}
@@ -1307,7 +1307,7 @@ export default function Home() {
                           </div>
                           <div>
                             <p className="text-[10px] text-slate-400 font-bold tracking-widest uppercase mb-1">Headquarters</p>
-                            <p className="text-base font-bold text-slate-900 leading-snug group-hover:text-red-600 transition-colors">Zaozhuang City, Shandong Province,<br/>China</p>
+                            <p className="text-base font-bold text-slate-900 leading-snug group-hover:text-red-600 transition-colors">3rd Floor, Building 6, No. 18 Xueqing Road,<br/>Haidian District, Beijing</p>
                           </div>
                         </div>
                       </div>
