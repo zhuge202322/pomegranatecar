@@ -101,6 +101,7 @@ export default function Home() {
  const [activeCategory, setActiveCategory] = useState('All');
  const [selectedProduct, setSelectedProduct] = useState<any>(null);
  const [selectedServiceDetail, setSelectedServiceDetail] = useState<any>(null);
+ const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
  const isTransitioning = useRef(false);
  const stageRef = useRef<HTMLDivElement>(null);
  const lenisRef = useRef<Lenis | null>(null);
@@ -294,7 +295,8 @@ export default function Home() {
  <img src="/img/logo.png" alt="Company Logo" className="h-20 md:h-[100px] w-auto object-contain" />
  </div>
  
- <ul className="flex items-center gap-10">
+ {/* 桌面端导航 */}
+ <ul className="hidden lg:flex items-center gap-10">
  {navItems.map((item) => (
  <li 
  key={item.id}
@@ -329,6 +331,32 @@ export default function Home() {
  </li>
  ))}
  </ul>
+
+ {/* 移动端汉堡菜单按钮 */}
+ <button
+ onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+ className="lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-[5px] focus:outline-none"
+ aria-label="Toggle menu"
+ >
+ <span className={`w-6 h-[2px] bg-slate-900 transition-all duration-300 ${mobileMenuOpen ? 'rotate-45 translate-y-[7px]' : ''}`}></span>
+ <span className={`w-6 h-[2px] bg-slate-900 transition-all duration-300 ${mobileMenuOpen ? 'opacity-0' : ''}`}></span>
+ <span className={`w-6 h-[2px] bg-slate-900 transition-all duration-300 ${mobileMenuOpen ? '-rotate-45 -translate-y-[7px]' : ''}`}></span>
+ </button>
+
+ {/* 移动端展开菜单面板 */}
+ <div className={`lg:hidden fixed top-[88px] left-0 w-full bg-white border-b border-slate-200 shadow-[0_20px_40px_rgba(0,0,0,0.08)] transition-all duration-500 origin-top ${mobileMenuOpen ? 'opacity-100 visible scale-y-100' : 'opacity-0 invisible scale-y-0'}`}>
+ <ul className="flex flex-col py-4">
+ {navItems.map((item) => (
+ <li
+ key={item.id}
+ onClick={() => { transitionTo(item.id); setMobileMenuOpen(false); }}
+ className={`px-8 py-4 text-sm font-bold uppercase tracking-[0.15em] cursor-pointer border-l-4 transition-all duration-300 ${currentId === item.id ? 'text-red-600 border-red-600 bg-red-50' : 'text-slate-700 border-transparent hover:bg-slate-50 hover:text-red-600'}`}
+ >
+ {item.label}
+ </li>
+ ))}
+ </ul>
+ </div>
  </nav>
 
  <div className="viewport">
@@ -763,19 +791,19 @@ export default function Home() {
  </div>
 
  {/* 核心内容区：左侧分类侧边栏 + 右侧产品网格 */}
- <div className="w-full max-w-[1400px] mx-auto px-12 py-24 flex flex-col lg:flex-row gap-16 flex-1">
+ <div className="w-full max-w-[1700px] mx-auto px-8 py-20 flex flex-col lg:flex-row gap-8 flex-1">
  
  {/* 左侧：分类侧边栏 */}
- <div className="w-full lg:w-[25%] shrink-0">
- <div className="sticky top-40 bg-white shadow-[0_10px_40px_rgba(0,0,0,0.03)] border border-slate-100 p-8">
- <h3 className="text-sm font-black text-slate-900 mb-6 uppercase tracking-widest border-b border-slate-100 pb-6 flex items-center gap-3">
+ <div className="w-full lg:w-[200px] shrink-0">
+ <div className="sticky top-40 bg-white shadow-[0_10px_40px_rgba(0,0,0,0.03)] border border-slate-100 p-5">
+ <h3 className="text-xs font-black text-slate-900 mb-4 uppercase tracking-widest border-b border-slate-100 pb-4 flex items-center gap-2">
  <svg className="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h7" /></svg>
  Categories
  </h3>
  <ul className="flex flex-col gap-2">
  <li 
  onClick={() => setActiveCategory('All')}
- className={`px-5 py-4 cursor-pointer font-bold text-[13px] transition-all duration-300 flex items-center justify-between group ${activeCategory === 'All' ? 'bg-red-600 text-white shadow-[0_8px_20px_rgba(220,38,38,0.25)]' : 'text-slate-600 hover:bg-red-50 hover:text-red-600'}`}
+ className={`px-3 py-3 cursor-pointer font-bold text-[12px] transition-all duration-300 flex items-center justify-between group ${activeCategory === 'All' ? 'bg-red-600 text-white shadow-[0_8px_20px_rgba(220,38,38,0.25)]' : 'text-slate-600 hover:bg-red-50 hover:text-red-600'}`}
  >
  All Products
  <span className={`transform transition-transform duration-300 ${activeCategory === 'All' ? 'translate-x-0' : '-translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100'}`}>&rsaquo;</span>
@@ -784,7 +812,7 @@ export default function Home() {
  <li 
  key={idx}
  onClick={() => setActiveCategory(cat as string)}
- className={`px-5 py-4 cursor-pointer font-bold text-[13px] transition-all duration-300 flex items-center justify-between group ${activeCategory === cat ? 'bg-red-600 text-white shadow-[0_8px_20px_rgba(220,38,38,0.25)]' : 'text-slate-600 hover:bg-red-50 hover:text-red-600'}`}
+ className={`px-3 py-3 cursor-pointer font-bold text-[12px] transition-all duration-300 flex items-center justify-between group ${activeCategory === cat ? 'bg-red-600 text-white shadow-[0_8px_20px_rgba(220,38,38,0.25)]' : 'text-slate-600 hover:bg-red-50 hover:text-red-600'}`}
  >
  <span className="capitalize line-clamp-1">{cat as string}</span>
  <span className={`transform transition-transform duration-300 shrink-0 ${activeCategory === cat ? 'translate-x-0' : '-translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100'}`}>&rsaquo;</span>
@@ -795,34 +823,25 @@ export default function Home() {
  </div>
 
  {/* 右侧：产品展示网格 */}
- <div className="w-full lg:w-[75%] grid grid-cols-1 md:grid-cols-2 gap-10 self-start">
+ <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 self-start">
  {filteredProducts.map((prod: any, idx: number) => (
  <div 
  key={idx} 
  onClick={() => { setSelectedProduct(prod); transitionTo('product-detail'); }}
- className="bg-white border border-slate-100 overflow-hidden group hover:shadow-[0_30px_60px_rgba(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-2 flex flex-col cursor-pointer"
+ className="bg-white border border-slate-100 overflow-hidden group hover:border-red-500 hover:shadow-[0_15px_35px_rgba(0,0,0,0.06)] transition-all duration-300 flex flex-col cursor-pointer"
  >
  
  {/* 产品图区 */}
- <div className="w-full aspect-[4/3] bg-slate-50 relative overflow-hidden p-8 flex items-center justify-center">
- <img src={prod.Thumbnail || 'https://via.placeholder.com/400?text=No+Image'} className="w-full h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-700" alt={prod['Product Name']} />
- {/* 悬停时的遮罩和按钮 */}
- <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
- <div className="absolute bottom-6 right-6 bg-red-600 text-white text-[10px] font-bold px-5 py-2.5 tracking-widest uppercase opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 shadow-[0_10px_20px_rgba(220,38,38,0.3)]">
- View Details
- </div>
+ <div className="w-full aspect-square bg-slate-50 relative overflow-hidden p-8 flex items-center justify-center">
+ <img src={prod.Thumbnail || 'https://via.placeholder.com/400?text=No+Image'} className="w-full h-full object-contain mix-blend-multiply" alt={prod['Product Name']} />
  </div>
 
  {/* 产品信息区 */}
- <div className="p-8 flex flex-col flex-1">
- <div className="text-[10px] text-red-500 font-bold uppercase tracking-widest mb-3 bg-red-50 w-max px-3 py-1 ">{prod.Category}</div>
- <h3 className="text-xl font-bold text-slate-900 leading-snug group-hover:text-red-600 transition-colors line-clamp-2 mb-4">
+ <div className="px-7 py-6 flex flex-col">
+ <div className="text-[10px] text-red-500 font-bold uppercase tracking-widest mb-3">{prod.Category}</div>
+ <h3 className="text-lg font-bold text-slate-900 leading-snug group-hover:text-red-600 transition-colors line-clamp-2 min-h-[2.6em]">
  {prod['Product Name']}
  </h3>
- {/* 简短描述 */}
- <p className="text-sm text-slate-500 line-clamp-2 mt-auto">
- High-performance electric mobility solution designed for efficiency and comfort. Contact us for detailed specifications.
- </p>
  </div>
 
  </div>
