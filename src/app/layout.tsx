@@ -16,8 +16,8 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Next.js 高级全屏横向转场",
-  description: "物理感增强版 SPA",
+  title: "Pomegranate EV",
+  description: "Beijing Dahong Pomegranate Technology Co., Ltd — Electric scooters & low-speed green mobility solutions for global customers.",
 };
 
 export default function RootLayout({

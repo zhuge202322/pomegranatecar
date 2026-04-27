@@ -7,11 +7,11 @@ import productsData from './products_data.json';
 
 // 提取所有不重复的分类名称，并为每个分类寻找一张代表图片
 const categories = Array.from(new Set(productsData.map((p: any) => p.Category)));
-const categoryCards = categories.map(cat => {
-  const product = productsData.find((p: any) => p.Category === cat && p.Thumbnail);
+const categoryCards = categories.map((cat, idx) => {
+  const localImages = ['/img/01.png', '/img/02.png', '/img/03.png', '/img/04.png'];
   return {
     name: cat as string,
-    image: product ? product.Thumbnail : '/img/application2.webp', // 默认海滩图兜底
+    image: localImages[idx] || '/img/01.png',
   };
 });
 
@@ -100,6 +100,7 @@ export default function Home() {
   const [activeScenario, setActiveScenario] = useState(0);
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
+  const [selectedServiceDetail, setSelectedServiceDetail] = useState<any>(null);
   const isTransitioning = useRef(false);
   const stageRef = useRef<HTMLDivElement>(null);
   const lenisRef = useRef<Lenis | null>(null);
@@ -360,12 +361,12 @@ export default function Home() {
                       </div>
                       
                       <h1 className="hero-title mb-8 text-white drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]">
-                        Electric<br/>
-                        <span className="text-white">Mobility.</span>
+                        Electric Scooters<br/>
+                        <span className="text-white">Travel Smarter.</span>
                       </h1>
                       
                       <p className="text-slate-300 text-sm md:text-base leading-relaxed max-w-md mb-12 tracking-wide font-[family-name:var(--font-inter)] drop-shadow-md">
-                        We specialize in producing electric personal mobility vehicles, golf carts, as well as customized vehicle models for various scenic areas globally.
+                        We focus on manufacturing low-speed electric scooters to make travel more convenient and efficient, and can provide users with customized vehicle solutions for multiple scenarios and multiple needs.
                       </p>
                       
                       <div className="flex gap-6">
@@ -373,13 +374,13 @@ export default function Home() {
                           onClick={() => transitionTo('products')}
                           className="px-10 py-4 bg-white text-black rounded-full text-xs font-bold tracking-[0.2em] uppercase hover:bg-blue-50 hover:scale-105 hover:shadow-[0_10px_30px_rgba(255,255,255,0.3)] transition-all duration-500 ease-out"
                         >
-                          Discover Products
+                          Explore Our Products
                         </button>
                         <button 
                           onClick={() => transitionTo('about')}
                           className="px-10 py-4 bg-black/20 backdrop-blur-md text-white border border-white/30 rounded-full text-xs font-bold tracking-[0.2em] uppercase hover:border-white hover:bg-white/10 transition-all duration-500 ease-out"
                         >
-                          Our Story
+                          Our Expertise
                         </button>
                       </div>
                     </div>
@@ -409,7 +410,7 @@ export default function Home() {
                 <div className="relative w-full bg-slate-50 py-40 px-12 z-20 flex flex-col items-center">
                   <div className="text-[10px] text-red-600 tracking-[0.4em] uppercase mb-6 font-bold">Discover Excellence</div>
                   <h2 className="text-[clamp(3rem,6vw,5rem)] font-black italic font-[family-name:var(--font-playfair)] text-slate-900 mb-24 text-center tracking-tighter leading-none">
-                    Product Series.
+                    Products.
                   </h2>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 w-full max-w-[1600px]">
@@ -464,216 +465,90 @@ export default function Home() {
                       <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-700 pointer-events-none"></div>
                     </div>
                     
-                    {/* 右侧：企业文案与视频入口 */}
+                    {/* 右侧：企业文案 */}
                     <div className="w-full lg:w-[45%] flex flex-col items-start relative pl-0 lg:pl-10">
-                      <h2 className="text-4xl md:text-5xl font-black italic font-[family-name:var(--font-playfair)] text-slate-900 mb-6 tracking-tighter">
-                        Pursue Innovation
-                      </h2>
-                          <h3 className="text-xl md:text-2xl font-bold text-red-600 mb-8">
-                            Beijing Dahong Shiliu Technology Co., Ltd.
-                          </h3>
-                          
-                          <div className="text-slate-600 leading-relaxed mb-10 text-sm md:text-base font-medium flex flex-col gap-4">
-                            <p>
-                              Located in Beijing—China's hub of technological innovation and international trade—Beijing Dahong Shiliu Technology Co., Ltd. focuses on providing global customers with safe, practical, and cost-effective short-distance green mobility solutions.
-                            </p>
-                            <p>
-                              Our core business centers on low-speed three-wheel and four-wheel electric vehicles, widely used for mobility assistance, short-distance commuting, and light cargo transport. Upholding the philosophy of "Quality First, Integrity-Based," we strictly control product quality and export standards. Our products have reached Southeast Asia, Africa, the Middle East, and beyond, earning deep trust and recognition from international clients.
-                            </p>
-                            <p>
-                              With integrity as our cornerstone, we are committed to being a reliable partner for global clients, bringing green and convenient mobility to more countries and regions.
-                            </p>
-                          </div>
+                      <h3 className="text-2xl md:text-3xl font-bold text-red-600 mb-8">
+                        Beijing Dahong Pomegranate Technology Co., Ltd
+                      </h3>
                       
-                      <button className="bg-red-600 text-white px-8 py-4 rounded-full font-bold text-xs tracking-widest hover:bg-red-700 hover:shadow-[0_10px_20px_rgba(220,38,38,0.3)] hover:-translate-y-1 transition-all duration-300 flex items-center gap-3 group">
-                        VIEW MORE 
-                        <span className="text-lg leading-none transform group-hover:translate-x-1 transition-transform duration-300">&rsaquo;</span>
-                      </button>
+                      <div className="text-slate-600 leading-relaxed text-sm md:text-base font-medium flex flex-col gap-4">
+                        <p>
+                          Located in Beijing—China's hub of technological innovation and international trade—Beijing Dahong Pomegranate Technology Co., Ltd focuses on providing global customers with safe, practical, and cost-effective short-distance green mobility solutions.
+                        </p>
+                        <p>
+                          Our core business centers on low-speed three-wheel and four-wheel electric vehicles, widely used for mobility assistance, short-distance commuting, and light cargo transport. Upholding the philosophy of "Quality First, Integrity-Based," we strictly control product quality and export standards. Our products have reached Southeast Asia, Africa, the Middle East, and beyond, earning deep trust and recognition from international clients.
+                        </p>
+                        <p>
+                          With integrity as our cornerstone, we are committed to being a reliable partner for global clients, bringing green and convenient mobility to more countries and regions.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-                      {/* 底部悬浮的视频播放入口 */}
-                      <div className="absolute -bottom-16 right-0 w-72 bg-white shadow-[0_20px_40px_rgba(0,0,0,0.15)] rounded-xl overflow-hidden flex group cursor-pointer hover:-translate-y-2 transition-transform duration-500">
-                        {/* 左侧垂直文字 */}
-                        <div 
-                          className="bg-red-600 text-white text-[10px] tracking-widest p-3 font-bold flex items-center justify-center rotate-180 uppercase" 
-                          style={{ writingMode: 'vertical-rl' }}
-                        >
-                          Corporate Video
-                        </div>
-                        {/* 右侧视频封面 */}
-                        <div className="relative flex-1 aspect-[16/9]">
-                          <img 
-                            src="/img/multiple-new-products-1.webp" 
-                            alt="Corporate Video" 
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                {/* Our Services 卡片区 */}
+                <div className="relative w-full bg-white py-32 px-12 z-20 flex flex-col items-center">
+                  <div className="text-[10px] text-red-600 tracking-[0.4em] uppercase mb-6 font-bold">What We Offer</div>
+                  <h2 className="text-[clamp(2.5rem,5vw,4rem)] font-black italic font-[family-name:var(--font-playfair)] text-slate-900 mb-20 text-center tracking-tighter leading-none">
+                    Our Services.
+                  </h2>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full max-w-[1600px]">
+                    {[
+                      {
+                        title: 'Customized research and development',
+                        img: '/img/services1.png',
+                        tagline: 'Tailored to Every Market.',
+                        desc: "The company's products are exported to more than 30 countries around the world, and can support personalized customization services for appearance, configuration, and parameters according to different market needs and policy standards, in line with local regulations and user usage habits, and help differentiate the market."
+                      },
+                      {
+                        title: 'Reliable Production',
+                        img: '/img/services2.png',
+                        tagline: 'Engineered With Precision.',
+                        desc: 'We implement perfect production processes and high-standard quality inspection specifications, strictly enforce every process from production and processing to finished product testing, and continue to stably output high-quality products to ensure compliant product delivery.'
+                      },
+                      {
+                        title: 'Global Logistics',
+                        img: '/img/services3.png',
+                        tagline: 'Delivered Anywhere, Worry-Free.',
+                        desc: 'Global logistics solutions, reinforce protective packaging, strictly control warehousing, packing, and transportation processes to ensure intact transportation and stable timeliness, and achieve efficient, safe and worry-free product delivery for overseas customers.'
+                      },
+                      {
+                        title: 'After-sales Support',
+                        img: '/img/services4.png',
+                        tagline: 'Always By Your Side.',
+                        desc: 'Global intimate after-sales service, about any questions about the product, we provide professional technical guidance, quick response, timely service, escort for customers, the whole process is worry-free.'
+                      },
+                    ].map((svc, idx) => (
+                      <div
+                        key={idx}
+                        onClick={() => { setSelectedServiceDetail({ ...svc, index: idx }); transitionTo('service-detail'); }}
+                        className="group relative w-full aspect-[4/5] cursor-pointer"
+                      >
+                        <div className="absolute inset-0 rounded-3xl overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.08)] bg-white border border-slate-100 transition-all duration-700 group-hover:scale-[1.02] group-hover:shadow-[0_25px_55px_rgba(220,38,38,0.15)] group-hover:border-red-600/30">
+                          <img
+                            src={svc.img}
+                            alt={svc.title}
+                            className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-out"
                           />
-                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/20 transition-colors duration-500">
-                            {/* 播放按钮 */}
-                            <div className="w-12 h-12 border-2 border-white rounded-full flex items-center justify-center backdrop-blur-sm group-hover:scale-110 transition-transform duration-500">
-                              <svg className="w-5 h-5 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M8 5v14l11-7z" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-[#060913]/90 via-[#060913]/30 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-700 pointer-events-none"></div>
+
+                          <div className="absolute bottom-8 left-8 right-8 flex justify-between items-end pointer-events-none">
+                            <div>
+                              <div className="text-[10px] font-bold text-red-500 tracking-[0.3em] uppercase mb-3">0{idx + 1}</div>
+                              <h3 className="text-white text-xl md:text-2xl font-black tracking-tight leading-tight drop-shadow-[0_4px_10px_rgba(0,0,0,0.4)]">
+                                {svc.title}
+                              </h3>
+                            </div>
+                            <div className="w-10 h-10 rounded-full border border-white/60 flex items-center justify-center shrink-0 group-hover:bg-red-600 group-hover:border-red-600 transition-colors duration-500">
+                              <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                               </svg>
                             </div>
                           </div>
                         </div>
                       </div>
-                      
-                    </div>
-                  </div>
-                </div>
-
-                {/* 第四屏：全球销售网络 (Global Network) */}
-                <div className="relative w-full bg-[#0a0f1c] py-32 px-12 z-20 flex flex-col items-center overflow-hidden">
-                  
-                  {/* 用于控制航线动画的内联样式 */}
-                  <style dangerouslySetInnerHTML={{__html: `
-                    @keyframes dash-flow {
-                      to { stroke-dashoffset: -24; }
-                    }
-                    .animate-dash-flow {
-                      animation: dash-flow 1.5s linear infinite;
-                    }
-                  `}} />
-
-                  {/* 背景世界地图 (使用 SVG 矢量地图并应用暗色/金色滤镜) */}
-                  <div className="absolute inset-0 w-full h-full flex items-center justify-center pointer-events-none overflow-hidden opacity-30">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img 
-                      src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg" 
-                      alt="World Map" 
-                      className="w-full h-[120%] object-contain max-w-[1400px] filter invert sepia-[0.3] hue-rotate-[320deg] saturate-[200%]"
-                    />
-                  </div>
-
-                  <div className="w-full max-w-[1400px] mx-auto relative z-10 flex flex-col lg:flex-row items-center justify-between min-h-[400px] py-12">
-                    
-                    {/* 左侧：联系文案区 */}
-                    <div className="w-full lg:w-[40%] flex flex-col items-start relative z-20">
-                      <span className="text-sm font-bold text-red-600 tracking-widest mb-4 uppercase">Get In Touch</span>
-                      <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight mb-6">
-                        Talk To Our Team Today
-                      </h2>
-                      <p className="text-slate-400 leading-relaxed mb-10 text-sm md:text-base max-w-md">
-                        We can give you the answer, for inquiries about our products, please leave your e-mail to us and will reply within 24 hours.
-                      </p>
-                      <button className="bg-red-600 text-white px-10 py-4 rounded-full font-bold text-xs tracking-widest hover:bg-red-700 hover:shadow-[0_10px_20px_rgba(220,38,38,0.3)] hover:-translate-y-1 transition-all duration-300 flex items-center gap-3 group">
-                        INQUIRY NOW 
-                        <span className="text-lg leading-none transform group-hover:translate-x-1 transition-transform duration-300">&rsaquo;</span>
-                      </button>
-                    </div>
-
-                    {/* 中间：地图动效节点与航线 (直接用绝对定位的小圆点和虚线模拟) */}
-                    <div className="absolute inset-0 w-full h-full pointer-events-none hidden md:block">
-                      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1400 600" preserveAspectRatio="xMidYMid slice">
-                        <defs>
-                          <linearGradient id="line-gradient" x1="100%" y1="100%" x2="0%" y2="0%">
-                            <stop offset="0%" stopColor="#dc2626" stopOpacity="0.8" />
-                            <stop offset="100%" stopColor="#ffffff" stopOpacity="0.1" />
-                          </linearGradient>
-                        </defs>
-                        {/* 航线路径 */}
-                        <path d="M 1000 300 Q 800 150 650 250" fill="none" stroke="url(#line-gradient)" strokeWidth="1.5" strokeDasharray="6 6" className="animate-dash-flow opacity-80" />
-                        <path d="M 1000 300 Q 850 200 750 330" fill="none" stroke="url(#line-gradient)" strokeWidth="1.5" strokeDasharray="6 6" className="animate-dash-flow opacity-60" style={{animationDuration: '2s'}} />
-                        <path d="M 1000 300 Q 700 100 350 230" fill="none" stroke="url(#line-gradient)" strokeWidth="1.5" strokeDasharray="6 6" className="animate-dash-flow opacity-80" style={{animationDuration: '2.5s'}} />
-                        <path d="M 1000 300 Q 600 350 450 430" fill="none" stroke="url(#line-gradient)" strokeWidth="1.5" strokeDasharray="6 6" className="animate-dash-flow opacity-50" style={{animationDuration: '3s'}} />
-                      </svg>
-
-                      {/* 起点：中国制造基地 */}
-                      <div className="absolute top-[50%] left-[71.5%] w-5 h-5 bg-red-600 rounded-full border-4 border-[#0a0f1c] shadow-[0_0_15px_rgba(220,38,38,0.8)] transform -translate-x-1/2 -translate-y-1/2 z-10 flex items-center justify-center">
-                        <div className="absolute w-10 h-10 bg-red-600 rounded-full animate-ping opacity-50"></div>
-                      </div>
-
-                      {/* 目标节点 */}
-                      <div className="absolute top-[41%] left-[46.5%] w-3 h-3 bg-white/90 rounded-full transform -translate-x-1/2 -translate-y-1/2 shadow-[0_0_10px_rgba(255,255,255,0.5)]"></div>
-                      <div className="absolute top-[55%] left-[53.5%] w-3 h-3 bg-white/90 rounded-full transform -translate-x-1/2 -translate-y-1/2 shadow-[0_0_10px_rgba(255,255,255,0.5)]"></div>
-                      <div className="absolute top-[38%] left-[25%] w-3 h-3 bg-white/90 rounded-full transform -translate-x-1/2 -translate-y-1/2 shadow-[0_0_10px_rgba(255,255,255,0.5)]"></div>
-                      <div className="absolute top-[71%] left-[32%] w-3 h-3 bg-white/90 rounded-full transform -translate-x-1/2 -translate-y-1/2 shadow-[0_0_10px_rgba(255,255,255,0.5)]"></div>
-                    </div>
-
-                    {/* 右侧：图例说明区 */}
-                    <div className="w-full lg:w-[25%] flex flex-col items-start lg:items-end mt-16 lg:mt-0 relative z-20">
-                      <div className="bg-[#12192b]/80 backdrop-blur-xl border border-white/5 rounded-2xl p-8 flex flex-col gap-5 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-                        <h3 className="text-2xl font-black text-[#e5b25d] tracking-widest uppercase">
-                          NIUDIAN<span className="text-white">EV</span>
-                        </h3>
-                        <div className="flex items-center gap-4 mt-2">
-                          <div className="w-8 h-8 rounded-full flex items-center justify-center relative">
-                            {/* SVG Pin Icon */}
-                            <svg className="w-8 h-8 text-purple-600 drop-shadow-[0_0_5px_rgba(147,51,234,0.8)]" viewBox="0 0 24 24" fill="currentColor">
-                              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                            </svg>
-                            <div className="absolute top-[8px] w-2.5 h-2.5 bg-white rounded-full"></div>
-                          </div>
-                          <span className="text-slate-300 text-sm font-medium tracking-wide">Manufacture base</span>
-                        </div>
-                      </div>
-                    </div>
-                    
-                  </div>
-                </div>
-
-                {/* 第五屏：Service Support (手风琴交互交互区) */}
-                <div className="relative w-full bg-slate-50 py-32 px-12 z-20 flex flex-col items-center">
-                  <div className="w-full max-w-[1400px] mx-auto">
-                    {/* 头部标题 */}
-                    <div className="flex items-center gap-4 mb-12">
-                      <span className="text-xs font-bold text-red-600 tracking-wider whitespace-nowrap">Our Advantages</span>
-                      <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
-                        Service Support
-                      </h2>
-                    </div>
-
-                    {/* 手风琴展示区 */}
-                    <div className="flex w-full h-[500px] bg-slate-100 rounded-none overflow-hidden shadow-sm border border-slate-200">
-                      {servicesData.map((svc, idx) => {
-                        const isActive = activeService === idx;
-                        return (
-                          <div 
-                            key={idx}
-                            onMouseEnter={() => setActiveService(idx)}
-                            className={`relative h-full flex transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer overflow-hidden ${isActive ? 'w-[55%] bg-red-600' : 'w-[15%] bg-slate-100 border-l border-slate-200/50 hover:bg-slate-200'}`}
-                          >
-                            {/* 激活状态展示 */}
-                            <div className={`absolute inset-0 flex w-[calc(1400px*0.55)] h-full transition-opacity duration-500 delay-100 ${isActive ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-                              {/* 左侧红色文字区 */}
-                              <div className="w-[45%] h-full bg-red-600 p-12 flex flex-col justify-center text-white relative z-10 shrink-0">
-                                <h3 className="text-3xl font-bold mb-6 leading-tight max-w-[80%]">
-                                  {svc.title}
-                                </h3>
-                                <p className="text-red-100 text-sm leading-relaxed mb-12 line-clamp-4">
-                                  {svc.desc}
-                                </p>
-                                <div className="mt-auto">
-                                  <button className="w-12 h-12 rounded-full border border-white/50 flex items-center justify-center hover:bg-white hover:text-red-600 transition-colors duration-300">
-                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
-                                    </svg>
-                                  </button>
-                                </div>
-                              </div>
-                              {/* 右侧图片区 */}
-                              <div className="w-[55%] h-full relative shrink-0">
-                                <img src={svc.img} alt={svc.title} className="w-full h-full object-cover" />
-                              </div>
-                            </div>
-
-                            {/* 非激活状态展示 */}
-                            <div className={`absolute inset-0 w-[calc(1400px*0.15)] h-full p-8 flex flex-col justify-center transition-opacity duration-500 ${isActive ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
-                              <div className="mb-8">
-                                {svc.icon}
-                              </div>
-                              <h3 className="text-lg font-bold text-slate-800 leading-snug mb-12">
-                                {svc.title}
-                              </h3>
-                              <div className="w-10 h-10 rounded-full border border-slate-300 flex items-center justify-center bg-transparent mt-auto">
-                                <svg className="w-4 h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                </svg>
-                              </div>
-                            </div>
-                          </div>
-                        );
-                      })}
-                    </div>
+                    ))}
                   </div>
                 </div>
 
@@ -1062,6 +937,83 @@ export default function Home() {
             </div>
           </div>
 
+          {/* 页面 07: Service Detail (服务详情页) */}
+          <div id="service-detail" className="page-wrapper" style={{ display: 'none' }}>
+            <div className="page justify-start items-start !p-0 overflow-y-auto overflow-x-hidden" style={{ background: '#ffffff', display: 'block' }}>
+              <div className="scroll-content w-full relative h-max flex-none min-h-screen flex flex-col">
+
+                {selectedServiceDetail && (
+                  <>
+                    {/* 顶部 Banner */}
+                    <div className="relative w-full h-[60vh] bg-[#0a0f1c] flex items-center justify-center overflow-hidden shrink-0 mt-24">
+                      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[#0a0f1c] z-10"></div>
+                      <img
+                        src={selectedServiceDetail.img}
+                        alt={selectedServiceDetail.title}
+                        className="absolute inset-0 w-full h-full object-cover opacity-50 blur-sm scale-105"
+                      />
+
+                      <div className="relative z-20 w-full max-w-[1400px] mx-auto px-12 flex flex-col items-center text-center mt-12">
+                        <div className="flex items-center gap-3 text-[10px] font-bold text-slate-300 tracking-[0.2em] uppercase mb-8">
+                          <span className="cursor-pointer hover:text-white transition-colors" onClick={() => transitionTo('home')}>Home</span>
+                          <span className="text-red-500">/</span>
+                          <span className="text-white">Our Services</span>
+                          <span className="text-red-500">/</span>
+                          <span className="text-white">0{selectedServiceDetail.index + 1}</span>
+                        </div>
+
+                        <span className="text-red-500 font-bold tracking-[0.3em] uppercase text-xs mb-6 block">{selectedServiceDetail.tagline}</span>
+                        <h1 className="text-4xl md:text-6xl font-black italic font-[family-name:var(--font-playfair)] text-white mb-6 tracking-tight max-w-4xl leading-tight drop-shadow-2xl">
+                          {selectedServiceDetail.title}.
+                        </h1>
+                        <div className="w-20 h-1 bg-red-600 mx-auto rounded-full"></div>
+                      </div>
+                    </div>
+
+                    {/* 内容区：左图 + 右文案 */}
+                    <div className="w-full bg-white py-32 px-12 relative z-20">
+                      <div className="w-full max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-16 items-center">
+                        <div className="w-full lg:w-1/2 relative group rounded-[2.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)]">
+                          <img
+                            src={selectedServiceDetail.img}
+                            alt={selectedServiceDetail.title}
+                            className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-1000 ease-out"
+                          />
+                        </div>
+                        <div className="w-full lg:w-1/2 flex flex-col items-start lg:pl-8">
+                          <span className="text-xs font-bold text-red-600 tracking-[0.3em] uppercase mb-4">0{selectedServiceDetail.index + 1} — Our Service</span>
+                          <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-8 leading-tight tracking-tighter">
+                            {selectedServiceDetail.title}
+                          </h2>
+                          <p className="text-slate-600 leading-relaxed text-base mb-12 font-medium">
+                            {selectedServiceDetail.desc}
+                          </p>
+                          <div className="flex items-center gap-4">
+                            <button
+                              onClick={() => transitionTo('contact')}
+                              className="bg-red-600 text-white px-8 py-4 rounded-full font-bold text-xs tracking-widest hover:bg-red-700 hover:shadow-[0_10px_20px_rgba(220,38,38,0.3)] hover:-translate-y-1 transition-all duration-300"
+                            >
+                              GET IN TOUCH
+                            </button>
+                            <button
+                              onClick={() => transitionTo('home')}
+                              className="bg-slate-100 text-slate-900 border border-slate-200 px-8 py-4 rounded-full font-bold text-xs tracking-widest hover:bg-slate-200 transition-all duration-300"
+                            >
+                              BACK TO HOME
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                )}
+
+                {renderFooter()}
+
+              </div>
+            </div>
+          </div>
+
           {/* 页面 02: About Us (关于我们) */}
           <div id="about" className="page-wrapper" style={{ display: 'none' }}>
             <div className="page justify-start items-start !p-0 overflow-y-auto overflow-x-hidden" style={{ background: '#f8fafc', display: 'block' }}>
@@ -1085,7 +1037,7 @@ export default function Home() {
                   <div className="w-full max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-16 items-center">
                     {/* 左侧：企业大楼/生产基地展示 */}
                     <div className="w-full lg:w-1/2 relative group rounded-[2.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)]">
-                      <img src="/img/canton-fair.webp" alt="Company HQ" className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-1000 ease-out" />
+                      <img src="/img/canton-fair.png" alt="Company HQ" className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-1000 ease-out" />
                       <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-700"></div>
                     </div>
                     {/* 右侧：详细介绍与数据统计 */}
@@ -1303,7 +1255,7 @@ export default function Home() {
                 {/* Contact 顶部 Banner */}
                 <div className="relative w-full h-[50vh] bg-[#0a0f1c] flex items-center justify-center overflow-hidden shrink-0 mt-24">
                   <div className="absolute inset-0 bg-black/60 z-10"></div>
-                  <img src="/img/canton-fair.webp" alt="Contact Banner" className="absolute inset-0 w-full h-full object-cover opacity-60" />
+                  <img src="/img/canton-fair.png" alt="Contact Banner" className="absolute inset-0 w-full h-full object-cover opacity-60" />
                   <div className="relative z-20 text-center px-12">
                     <span className="text-red-500 font-bold tracking-[0.3em] uppercase text-xs mb-6 block">We're Here to Help</span>
                     <h1 className="text-5xl md:text-7xl font-black italic font-[family-name:var(--font-playfair)] text-white mb-6 drop-shadow-lg">
