@@ -1,120 +1,121 @@
 @import "tailwindcss";
 
 @layer base {
-  body, html {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      background-color: #ffffff;
-      color: #0f172a;
-      font-family: var(--font-inter), sans-serif;
-      overflow: hidden;
-  }
+ body, html {
+ margin: 0;
+ padding: 0;
+ width: 100%;
+ height: 100%;
+ background-color: #ffffff;
+ color: #0f172a;
+ font-family: var(--font-inter), sans-serif;
+ overflow: hidden;
+ }
 }
 
 .viewport {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
+ position: relative;
+ width: 100%;
+ height: 100vh;
+ overflow: hidden;
 }
 
 .stage {
-    position: relative;
-    width: 100%;
-    height: 100%;
+ position: relative;
+ width: 100%;
+ height: 100%;
 }
 
 .page-wrapper {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
+ position: absolute;
+ inset: 0;
+ width: 100%;
+ height: 100%;
 }
 
 .page {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    background: #ffffff;
-    will-change: transform, opacity;
+ position: absolute;
+ inset: 0;
+ display: flex;
+ flex-direction: column;
+ background: #ffffff;
+ will-change: transform, opacity;
 }
 
 /* 隐藏滚动条 */
 .page::-webkit-scrollbar {
-  display: none;
+ display: none;
 }
 .page {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+ -ms-overflow-style: none;
+ scrollbar-width: none;
 }
 
 .page-1 { background: radial-gradient(circle at 10% 40%, #111a30 0%, #060913 70%); }
 .page-2 { background: radial-gradient(circle at 90% 60%, #161a2b 0%, #060913 70%); }
 
 .hero-title {
-    font-family: "Microsoft YaHei", "微软雅黑", "PingFang SC", "Heiti SC", sans-serif;
-    font-style: normal;
-    font-size: clamp(4rem, 10vw, 11rem);
-    line-height: 0.9;
-    letter-spacing: -0.03em;
-    color: #ffffff;
+ font-family: "Microsoft YaHei", "微软雅黑", "PingFang SC", "Heiti SC", sans-serif;
+ font-style: normal;
+ font-size: clamp(2.5rem, 5.5vw, 5.5rem);
+ line-height: 1.1;
+ letter-spacing: -0.02em;
+ color: #ffffff;
+ white-space: nowrap;
 }
 
 .font-yahei {
-    font-family: "Microsoft YaHei", "微软雅黑", "PingFang SC", "Heiti SC", sans-serif;
-    font-style: normal;
+ font-family: "Microsoft YaHei", "微软雅黑", "PingFang SC", "Heiti SC", sans-serif;
+ font-style: normal;
 }
 
 .motion-overlay {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background: #fff;
-    opacity: 0;
-    z-index: 500;
+ position: absolute;
+ inset: 0;
+ pointer-events: none;
+ background: #fff;
+ opacity: 0;
+ z-index: 500;
 }
 
 /* Product HTML Content Formatting */
 .product-html-content {
-  color: #334155;
-  line-height: 1.8;
-  font-size: 1rem;
+ color: #334155;
+ line-height: 1.8;
+ font-size: 1rem;
 }
 .product-html-content h1, 
 .product-html-content h2, 
 .product-html-content h3 {
-  color: #0f172a;
-  font-weight: 800;
-  margin-top: 2.5rem;
-  margin-bottom: 1.5rem;
+ color: #0f172a;
+ font-weight: 800;
+ margin-top: 2.5rem;
+ margin-bottom: 1.5rem;
 }
 .product-html-content img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 1rem;
-  margin: 2rem auto;
-  display: block;
+ max-width: 100%;
+ height: auto;
+ 
+ margin: 2rem auto;
+ display: block;
 }
 .product-html-content table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 2rem 0;
-  font-size: 0.875rem;
+ width: 100%;
+ border-collapse: collapse;
+ margin: 2rem 0;
+ font-size: 0.875rem;
 }
 .product-html-content th, 
 .product-html-content td {
-  border: 1px solid #e2e8f0;
-  padding: 1rem;
-  text-align: left;
+ border: 1px solid #e2e8f0;
+ padding: 1rem;
+ text-align: left;
 }
 .product-html-content th {
-  background-color: #f8fafc;
-  font-weight: 700;
-  color: #0f172a;
+ background-color: #f8fafc;
+ font-weight: 700;
+ color: #0f172a;
 }
 .product-html-content p {
-  margin-bottom: 1.25rem;
+ margin-bottom: 1.25rem;
 }
