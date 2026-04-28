@@ -1083,14 +1083,14 @@ export default function Home() {
  <div className="w-full max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-16 items-center">
  {/* 左侧：企业大楼/生产基地展示 */}
  <div className="w-full lg:w-1/2 relative group overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)]">
- <img src="/img/canton-fair.webp" alt="Company HQ" className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-1000 ease-out" />
+ <img src="/img/about.png" alt="Company HQ" className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-1000 ease-out" />
  <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-700"></div>
  </div>
  {/* 右侧：详细介绍与数据统计 */}
  <div className="w-full lg:w-1/2 flex flex-col items-start lg:pl-8">
  <span className="text-xs font-bold text-red-600 tracking-[0.3em] uppercase mb-4">Beijing Dahong Shiliu</span>
- <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-8 leading-tight tracking-tighter">
- Driving the Future of <br/>Green Mobility.
+ <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-8 leading-tight tracking-tighter">
+ Beijing Dahong Pomegranate<br/>Technology Co., Ltd
  </h2>
  <div className="text-slate-600 leading-relaxed mb-12 text-sm md:text-base font-medium flex flex-col gap-4">
  <p>
@@ -1171,21 +1171,38 @@ export default function Home() {
  </div>
  </div>
 
- {/* CTA / Join Us 区域 */}
- <div className="w-full bg-slate-50 py-32 px-12 border-t border-slate-100 flex flex-col items-center justify-center text-center">
- <div className="w-20 h-20 bg-white flex items-center justify-center mb-8 shadow-[0_10px_30px_rgba(0,0,0,0.05)] border border-slate-100">
- <svg className="w-10 h-10 text-red-600" viewBox="0 0 24 24" fill="currentColor">
+ {/* CTA / Join Us 区域 - 左右双栏 */}
+ <div className="w-full bg-slate-50 py-24 px-12 border-t border-slate-100">
+ <div className="w-full max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-16 items-center">
+ {/* 左侧：文案 + CTA */}
+ <div className="w-full lg:w-1/2 flex flex-col items-start">
+ <div className="w-16 h-16 bg-white flex items-center justify-center mb-8 shadow-[0_10px_30px_rgba(0,0,0,0.05)] border border-slate-100">
+ <svg className="w-8 h-8 text-red-600" viewBox="0 0 24 24" fill="currentColor">
  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
  </svg>
  </div>
- <h2 className="text-4xl font-black text-slate-900 mb-6">Partner With DAHONG SHILIU</h2>
- <p className="text-slate-500 max-w-xl mx-auto mb-10 text-sm leading-relaxed">
- Join our expanding global network. Experience unparalleled quality, service, and innovation with Beijing Dahong Shiliu Technology.
+ <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-6 leading-tight">Partner With Pomegranate Technology</h2>
+ <p className="text-slate-500 mb-10 text-sm md:text-base leading-relaxed max-w-md">
+ Join our expanding global network. Experience unparalleled quality, service, and innovation with Technology.
  </p>
  <button onClick={() => transitionTo('contact')} className="bg-red-600 text-white px-10 py-4 font-bold text-xs tracking-widest hover:bg-red-700 hover:shadow-[0_10px_20px_rgba(220,38,38,0.3)] hover:-translate-y-1 transition-all duration-300 flex items-center gap-3 group">
  GET IN TOUCH
  <span className="text-lg leading-none transform group-hover:translate-x-1 transition-transform duration-300">&rsaquo;</span>
  </button>
+ </div>
+
+ {/* 右侧：产品视频 */}
+ <div className="w-full lg:w-1/2 relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)]">
+ <video
+ src="/img/about.mp4"
+ autoPlay
+ loop
+ muted
+ playsInline
+ className="w-full h-[500px] object-cover"
+ />
+ </div>
+ </div>
  </div>
 
  {/* 底部复用 Footer */}
