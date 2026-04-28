@@ -276,7 +276,7 @@ export default function Home() {
 
  {/* Copyright 底部版权条 */}
  <div className="w-full max-w-[1400px] mx-auto mt-24 pt-8 border-t border-slate-200 flex flex-col md:flex-row items-center justify-between">
- <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">© 2026 Beijing Dahong Shiliu Technology Co., Ltd. All Rights Reserved.</p>
+ <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">© 2026 Beijing  Pomegranate Technology Co., Ltd. All Rights Reserved.</p>
  <div className="flex items-center gap-8 mt-4 md:mt-0">
  <span className="text-[10px] text-slate-400 font-bold hover:text-red-600 cursor-pointer uppercase tracking-widest transition-colors">Privacy Policy</span>
  <span className="text-[10px] text-slate-400 font-bold hover:text-red-600 cursor-pointer uppercase tracking-widest transition-colors">Terms of Service</span>
@@ -1088,13 +1088,13 @@ export default function Home() {
  </div>
  {/* 右侧：详细介绍与数据统计 */}
  <div className="w-full lg:w-1/2 flex flex-col items-start lg:pl-8">
- <span className="text-xs font-bold text-red-600 tracking-[0.3em] uppercase mb-4">Beijing Dahong Shiliu</span>
+ <span className="text-xs font-bold text-red-600 tracking-[0.3em] uppercase mb-4"></span>
  <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-8 leading-tight tracking-tighter">
  Beijing Dahong Pomegranate<br/>Technology Co., Ltd
  </h2>
  <div className="text-slate-600 leading-relaxed mb-12 text-sm md:text-base font-medium flex flex-col gap-4">
  <p>
- Located in Beijing—China's hub of technological innovation and international trade—Beijing Dahong Shiliu Technology Co., Ltd. focuses on providing global customers with safe, practical, and cost-effective short-distance green mobility solutions.
+ Located in Beijing—China's hub of technological innovation and international trade—Beijing  Pomegranate Technology Co., Ltd. focuses on providing global customers with safe, practical, and cost-effective short-distance green mobility solutions.
  </p>
  <p>
  Our core business centers on low-speed three-wheel and four-wheel electric vehicles, widely used for mobility assistance, short-distance commuting, and light cargo transport. Upholding the philosophy of "Quality First, Integrity-Based," we strictly control product quality and export standards. Our products have reached Southeast Asia, Africa, the Middle East, and beyond, earning deep trust and recognition from international clients.
@@ -1123,66 +1123,19 @@ export default function Home() {
  </div>
  </div>
 
- {/* 核心价值观模块 (暗色玻璃态卡片) */}
- <div className="w-full bg-[#0a0f1c] py-32 px-12 relative overflow-hidden border-t border-white/5">
- <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
- <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-blue-600/5 blur-[120px] "></div>
- </div>
- 
- <div className="w-full max-w-[1400px] mx-auto relative z-10 text-center mb-20">
- <span className="text-red-500 font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Our Philosophy</span>
- <h2 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">Core Values.</h2>
- <p className="text-slate-400 max-w-2xl mx-auto">The fundamental principles that guide our innovation, manufacturing processes, and global partnerships.</p>
- </div>
- 
- <div className="w-full max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
- {/* Value 1 */}
- <div className="bg-white/5 backdrop-blur-md border border-white/10 p-10 hover:bg-white/10 hover:-translate-y-2 transition-all duration-500 group shadow-xl">
- <div className="w-14 h-14 bg-red-600/20 text-red-500 flex items-center justify-center mb-8 group-hover:bg-red-600 group-hover:text-white transition-colors">
- <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
- </div>
- <h3 className="text-xl font-bold text-white mb-4">Innovation</h3>
- <p className="text-slate-400 text-sm leading-relaxed">Continuous R&D investment to lead the electric mobility revolution with cutting-edge tech.</p>
- </div>
- {/* Value 2 */}
- <div className="bg-white/5 backdrop-blur-md border border-white/10 p-10 hover:bg-white/10 hover:-translate-y-2 transition-all duration-500 group shadow-xl">
- <div className="w-14 h-14 bg-blue-600/20 text-blue-500 flex items-center justify-center mb-8 group-hover:bg-blue-600 group-hover:text-white transition-colors">
- <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
- </div>
- <h3 className="text-xl font-bold text-white mb-4">Quality</h3>
- <p className="text-slate-400 text-sm leading-relaxed">World-class manufacturing precision, certified by EEC, CCC, and ISO standards globally.</p>
- </div>
- {/* Value 3 */}
- <div className="bg-white/5 backdrop-blur-md border border-white/10 p-10 hover:bg-white/10 hover:-translate-y-2 transition-all duration-500 group shadow-xl">
- <div className="w-14 h-14 bg-emerald-600/20 text-emerald-500 flex items-center justify-center mb-8 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
- <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
- </div>
- <h3 className="text-xl font-bold text-white mb-4">Sustainability</h3>
- <p className="text-slate-400 text-sm leading-relaxed">Committed to reducing carbon footprints and promoting eco-friendly transportation solutions.</p>
- </div>
- {/* Value 4 */}
- <div className="bg-white/5 backdrop-blur-md border border-white/10 p-10 hover:bg-white/10 hover:-translate-y-2 transition-all duration-500 group shadow-xl">
- <div className="w-14 h-14 bg-purple-600/20 text-purple-500 flex items-center justify-center mb-8 group-hover:bg-purple-600 group-hover:text-white transition-colors">
- <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
- </div>
- <h3 className="text-xl font-bold text-white mb-4">Customer First</h3>
- <p className="text-slate-400 text-sm leading-relaxed">Dedicated 24/7 global support, prioritizing client success and long-term partnerships.</p>
- </div>
- </div>
- </div>
-
  {/* CTA / Join Us 区域 - 左右双栏 */}
- <div className="w-full bg-slate-50 py-24 px-12 border-t border-slate-100">
- <div className="w-full max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-16 items-center">
+ <div className="w-full bg-gradient-to-br from-slate-900 via-[#0a0f1c] to-slate-900 py-24 px-12 border-t border-slate-800 relative overflow-hidden">
+ <div className="absolute top-0 right-0 w-[40%] h-full bg-red-600/5 blur-[120px] pointer-events-none"></div>
+ <div className="w-full max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-16 items-center relative z-10">
  {/* 左侧：文案 + CTA */}
- <div className="w-full lg:w-1/2 flex flex-col items-start">
- <div className="w-16 h-16 bg-white flex items-center justify-center mb-8 shadow-[0_10px_30px_rgba(0,0,0,0.05)] border border-slate-100">
- <svg className="w-8 h-8 text-red-600" viewBox="0 0 24 24" fill="currentColor">
+ <div className="w-full lg:w-1/2 flex flex-col items-center text-center">
+ <div className="w-14 h-14 bg-white/10 backdrop-blur-md flex items-center justify-center mb-6 shadow-[0_10px_30px_rgba(0,0,0,0.2)] border border-white/10">
+ <svg className="w-7 h-7 text-red-500" viewBox="0 0 24 24" fill="currentColor">
  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
  </svg>
  </div>
- <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-6 leading-tight">Partner With Pomegranate Technology</h2>
- <p className="text-slate-500 mb-10 text-sm md:text-base leading-relaxed max-w-md">
+ <h2 className="text-2xl md:text-3xl font-black text-white mb-6 leading-tight whitespace-nowrap">Partner With Pomegranate Technology</h2>
+ <p className="text-slate-400 mb-10 text-sm md:text-base leading-relaxed max-w-md">
  Join our expanding global network. Experience unparalleled quality, service, and innovation with Technology.
  </p>
  <button onClick={() => transitionTo('contact')} className="bg-red-600 text-white px-10 py-4 font-bold text-xs tracking-widest hover:bg-red-700 hover:shadow-[0_10px_20px_rgba(220,38,38,0.3)] hover:-translate-y-1 transition-all duration-300 flex items-center gap-3 group">
