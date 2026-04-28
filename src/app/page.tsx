@@ -15,12 +15,13 @@ const categoryCards = categories.map((cat, idx) => {
  };
 });
 
-// 服务支持区数据
+// 服务支持区数据 (首页与服务页共用)
 const servicesData = [
  {
- title: "Regarding Product Development",
- desc: "NIUDIAN Automobile adheres to independent research and development, continuously exploring the frontiers of intelligent electric mobility and crafting highly competitive product matrices.",
- img: "/img/vehicle-oem-customization.webp",
+ title: 'Customized research and development',
+ tagline: 'Tailored to Every Market.',
+ img: '/img/services1.png',
+ desc: "The company's products are exported to more than 30 countries around the world, and can support personalized customization services for appearance, configuration, and parameters according to different market needs and policy standards, in line with local regulations and user usage habits, and help differentiate the market.",
  icon: (
  <svg className="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
@@ -28,9 +29,10 @@ const servicesData = [
  )
  },
  {
- title: "Regarding Production Manufacturing",
- desc: "We adopt a high-end positioning strategy, introducing advanced automated assembly lines and robotic welding to ensure world-class manufacturing precision.",
- img: "/img/service-support-2-1.webp",
+ title: 'Reliable Production',
+ tagline: 'Engineered With Precision.',
+ img: '/img/services2.png',
+ desc: 'We implement perfect production processes and high-standard quality inspection specifications, strictly enforce every process from production and processing to finished product testing, and continue to stably output high-quality products to ensure compliant product delivery.',
  icon: (
  <svg className="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
@@ -38,9 +40,10 @@ const servicesData = [
  )
  },
  {
- title: "Regarding Vehicle Delivery",
- desc: "A globally integrated logistics and delivery system guarantees that your vehicles arrive safely, punctually, and ready for deployment.",
- img: "/img/canton-fair.webp",
+ title: 'Global Logistics',
+ tagline: 'Delivered Anywhere, Worry-Free.',
+ img: '/img/services3.png',
+ desc: 'Global logistics solutions, reinforce protective packaging, strictly control warehousing, packing, and transportation processes to ensure intact transportation and stable timeliness, and achieve efficient, safe and worry-free product delivery for overseas customers.',
  icon: (
  <svg className="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -49,9 +52,10 @@ const servicesData = [
  )
  },
  {
- title: "Regarding vehicle after-sales",
- desc: "Comprehensive 24/7 after-sales support with a dedicated parts network to ensure that every vehicle operates at peak performance.",
- img: "/img/service-support-1-1.webp",
+ title: 'After-sales Support',
+ tagline: 'Always By Your Side.',
+ img: '/img/services4.png',
+ desc: 'Global intimate after-sales service, about any questions about the product, we provide professional technical guidance, quick response, timely service, escort for customers, the whole process is worry-free.',
  icon: (
  <svg className="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -144,7 +148,7 @@ export default function Home() {
  };
  }, [currentId]);
 
- // 处理产品详情页的富文本图片懒加载修复
+ // 处理产品详情页的富文本图片懒加载修复 + 加载失败自动隐藏
  useEffect(() => {
  if (currentId === 'product-detail' && detailContentRef.current) {
  const images = detailContentRef.current.querySelectorAll('img');
@@ -156,6 +160,15 @@ export default function Home() {
  img.removeAttribute('data-webp');
  img.classList.remove('lazyload');
  }
+ // 加载失败 (图片被本地删除) 时隐藏该图片所在的段落
+ img.onerror = () => {
+ const wrapper = img.closest('p, figure, div') as HTMLElement | null;
+ if (wrapper && wrapper !== detailContentRef.current) {
+ wrapper.style.display = 'none';
+ } else {
+ img.style.display = 'none';
+ }
+ };
  });
  }
  }, [currentId, selectedProduct]);
@@ -373,9 +386,9 @@ export default function Home() {
  <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
  {/* eslint-disable-next-line @next/next/no-img-element */}
  <img 
- src="/img/banner.png" 
+ src="/img/hero-scooters.jpg" 
  alt="Hero Banner" 
- className="w-full h-full object-cover object-bottom" 
+ className="w-full h-full object-cover object-center" 
  />
  </div>
  
@@ -388,9 +401,8 @@ export default function Home() {
  Resort & Leisure
  </div>
  
- <h1 className="hero-title mb-8 text-white drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]">
- Electric Scooters<br/>
- <span className="text-white">Travel Smarter.</span>
+ <h1 className="mb-8 text-white drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] text-2xl md:text-3xl lg:text-[2.5rem] font-black tracking-tight whitespace-nowrap w-max max-w-none">
+ Electric scooters - make travel more convenient
  </h1>
  
  <p className="text-slate-300 text-sm md:text-base leading-relaxed max-w-md mb-12 tracking-wide font-[family-name:var(--font-inter)] drop-shadow-md">
@@ -436,9 +448,8 @@ export default function Home() {
 
  {/* 第二屏：Product Series 分类展示区 (Light Theme) */}
  <div className="relative w-full bg-gradient-to-b from-slate-50 to-white pt-12 pb-16 px-12 z-20 flex flex-col items-center">
- <div className="text-[10px] text-red-600 tracking-[0.4em] uppercase mb-3 font-bold">Discover Excellence</div>
  <h2 className="text-[clamp(2.5rem,5vw,4rem)] font-black font-yahei text-slate-900 mb-10 text-center tracking-tighter leading-none">
- Products.
+ Products
  </h2>
  
  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 w-full max-w-[1600px]">
@@ -543,38 +554,12 @@ export default function Home() {
 
  {/* Our Services 卡片区 */}
  <div className="relative w-full bg-gradient-to-b from-slate-100 via-white to-slate-50 pt-14 pb-20 px-12 z-20 flex flex-col items-center">
- <div className="text-[10px] text-red-600 tracking-[0.4em] uppercase mb-3 font-bold">What We Offer</div>
  <h2 className="text-[clamp(2rem,4vw,3.25rem)] font-black font-yahei text-slate-900 mb-10 text-center tracking-tighter leading-none">
- Our Services.
+ Services
  </h2>
 
  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full max-w-[1600px]">
- {[
- {
- title: 'Customized research and development',
- img: '/img/services1.png',
- tagline: 'Tailored to Every Market.',
- desc: "The company's products are exported to more than 30 countries around the world, and can support personalized customization services for appearance, configuration, and parameters according to different market needs and policy standards, in line with local regulations and user usage habits, and help differentiate the market."
- },
- {
- title: 'Reliable Production',
- img: '/img/services2.png',
- tagline: 'Engineered With Precision.',
- desc: 'We implement perfect production processes and high-standard quality inspection specifications, strictly enforce every process from production and processing to finished product testing, and continue to stably output high-quality products to ensure compliant product delivery.'
- },
- {
- title: 'Global Logistics',
- img: '/img/services3.png',
- tagline: 'Delivered Anywhere, Worry-Free.',
- desc: 'Global logistics solutions, reinforce protective packaging, strictly control warehousing, packing, and transportation processes to ensure intact transportation and stable timeliness, and achieve efficient, safe and worry-free product delivery for overseas customers.'
- },
- {
- title: 'After-sales Support',
- img: '/img/services4.png',
- tagline: 'Always By Your Side.',
- desc: 'Global intimate after-sales service, about any questions about the product, we provide professional technical guidance, quick response, timely service, escort for customers, the whole process is worry-free.'
- },
- ].map((svc, idx) => (
+ {servicesData.map((svc, idx) => (
  <div
  key={idx}
  onClick={() => { setSelectedServiceDetail({ ...svc, index: idx }); transitionTo('service-detail'); }}
@@ -667,9 +652,8 @@ export default function Home() {
  
  {/* 左侧：联系信息与标语 */}
  <div className="w-full lg:w-[40%] flex flex-col items-start justify-center">
- <span className="text-xs font-bold text-red-600 tracking-[0.3em] uppercase mb-6">Contact Us</span>
  <h2 className="text-4xl md:text-6xl font-black font-yahei text-slate-900 mb-8 tracking-tighter leading-tight">
- Let's Start a<br/>Conversation.
+ Let's Start a<br/>Conversation
  </h2>
  <p className="text-slate-600 leading-relaxed mb-12 text-sm md:text-base font-medium max-w-md">
  Whether you have a question about our electric vehicles, pricing, or customized solutions, our global team is ready to answer all your questions.
@@ -782,9 +766,8 @@ export default function Home() {
  <div className="absolute inset-0 bg-black/40 z-10"></div>
  <img src="/img/banner.png" alt="Products Banner" className="absolute inset-0 w-full h-full object-cover opacity-60" />
  <div className="relative z-20 text-center px-12">
- <span className="text-red-500 font-bold tracking-[0.3em] uppercase text-xs mb-6 block">Explore Our Fleet</span>
  <h1 className="text-5xl md:text-7xl font-black font-yahei text-white mb-6 drop-shadow-lg">
- Our Products.
+ Products
  </h1>
  <div className="w-20 h-1 bg-red-600 mx-auto "></div>
  </div>
@@ -801,13 +784,6 @@ export default function Home() {
  Categories
  </h3>
  <ul className="flex flex-col gap-2">
- <li 
- onClick={() => setActiveCategory('All')}
- className={`px-3 py-3 cursor-pointer font-bold text-[12px] transition-all duration-300 flex items-center justify-between group ${activeCategory === 'All' ? 'bg-red-600 text-white shadow-[0_8px_20px_rgba(220,38,38,0.25)]' : 'text-slate-600 hover:bg-red-50 hover:text-red-600'}`}
- >
- All Products
- <span className={`transform transition-transform duration-300 ${activeCategory === 'All' ? 'translate-x-0' : '-translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100'}`}>&rsaquo;</span>
- </li>
  {categories.map((cat, idx) => (
  <li 
  key={idx}
@@ -871,107 +847,126 @@ export default function Home() {
  
  {selectedProduct && (
  <>
- {/* 详情页顶部 Banner */}
- <div className="relative w-full h-[60vh] bg-[#0a0f1c] flex items-center justify-center overflow-hidden shrink-0 mt-24">
- <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[#0a0f1c] z-10"></div>
- <img 
- src={selectedProduct.Thumbnail || '/img/banner.png'} 
- alt={selectedProduct['Product Name']} 
- className="absolute inset-0 w-full h-full object-cover opacity-50 blur-sm scale-105" 
- />
- 
- <div className="relative z-20 w-full max-w-[1400px] mx-auto px-12 flex flex-col items-center text-center mt-12">
- {/* 面包屑导航 */}
- <div className="flex items-center gap-3 text-[10px] font-bold text-slate-300 tracking-[0.2em] uppercase mb-8">
- <span className="cursor-pointer hover:text-white transition-colors" onClick={() => transitionTo('home')}>Home</span>
- <span className="text-red-500">/</span>
- <span className="cursor-pointer hover:text-white transition-colors" onClick={() => { setActiveCategory(selectedProduct.Category); transitionTo('products'); }}>Products</span>
- <span className="text-red-500">/</span>
- <span className="text-white">{selectedProduct.Category}</span>
+ {/* 顶部面包屑 */}
+ <div className="w-full max-w-[1400px] mx-auto px-12 pt-32 pb-6">
+ <div className="flex items-center gap-3 text-[11px] font-bold text-slate-500 tracking-[0.15em] uppercase">
+ <span className="cursor-pointer hover:text-red-600 transition-colors" onClick={() => transitionTo('home')}>Home</span>
+ <span className="text-slate-300">/</span>
+ <span className="cursor-pointer hover:text-red-600 transition-colors" onClick={() => { setActiveCategory(selectedProduct.Category); transitionTo('products'); }}>Products</span>
+ <span className="text-slate-300">/</span>
+ <span className="text-slate-900">{selectedProduct.Category}</span>
  </div>
- 
- {/* 主标题 */}
- <h1 className="text-4xl md:text-6xl font-black text-white mb-8 tracking-tight max-w-4xl leading-tight drop-shadow-2xl">
+ </div>
+
+ {/* 主体三栏区 */}
+ <div className="w-full max-w-[1400px] mx-auto px-12 pb-12 flex flex-col lg:flex-row gap-10">
+
+ {/* 左侧：分类列表 + 联系方式 */}
+ <aside className="w-full lg:w-[230px] shrink-0 flex flex-col gap-8">
+ {/* PRODUCT CENTER */}
+ <div className="bg-white border border-slate-200">
+ <div className="flex items-center justify-center gap-2 py-4 border-b border-slate-200">
+ <svg className="w-4 h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h.01M7 3h5a1.99 1.99 0 011.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.99 1.99 0 013 12V7a4 4 0 014-4z" /></svg>
+ <span className="text-[12px] font-bold text-slate-900 tracking-[0.15em] uppercase">Product Center</span>
+ </div>
+ <ul className="flex flex-col">
+ {categories.map((cat, idx) => {
+ const active = selectedProduct.Category === cat;
+ return (
+ <li
+ key={idx}
+ onClick={() => { setActiveCategory(cat as string); transitionTo('products'); }}
+ className={`px-5 py-3 text-[12px] cursor-pointer border-t border-slate-100 transition-colors ${active ? 'text-red-600 font-bold' : 'text-slate-700 hover:text-red-600'}`}
+ >
+ {cat as string}
+ </li>
+ );
+ })}
+ </ul>
+ </div>
+
+ {/* CONTACT US */}
+ <div className="bg-white border border-slate-200">
+ <div className="flex items-center justify-center gap-2 py-4 border-b border-slate-200">
+ <svg className="w-4 h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" /></svg>
+ <span className="text-[12px] font-bold text-slate-900 tracking-[0.15em] uppercase">Contact Us</span>
+ </div>
+ <ul className="flex flex-col text-[12px] text-slate-600">
+ <li className="px-5 py-3 flex items-center gap-2 border-t border-slate-100">
+ <svg className="w-4 h-4 text-slate-400" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413"/></svg>
+ <span>WhatsApp: +86 131 2107 6570</span>
+ </li>
+ <li className="px-5 py-3 flex items-center gap-2 border-t border-slate-100">
+ <svg className="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+ <span className="break-all">info@pomegranateev.com</span>
+ </li>
+ </ul>
+ </div>
+ </aside>
+
+ {/* 中间：产品主图 */}
+ <div className="flex-1 min-w-0">
+ <div className="bg-white border border-slate-200 p-6">
+ <div className="w-full aspect-square bg-slate-50 overflow-hidden flex items-center justify-center">
+ <img
+ src={selectedProduct.Thumbnail || '/img/banner.png'}
+ alt={selectedProduct['Product Name']}
+ className="w-full h-full object-contain"
+ />
+ </div>
+ </div>
+ </div>
+
+ {/* 右侧：产品名 + 询盘按钮 */}
+ <div className="w-full lg:w-[320px] shrink-0">
+ <div className="sticky top-32 flex flex-col">
+ <h1 className="text-2xl md:text-3xl font-bold text-slate-900 leading-snug mb-4">
  {selectedProduct['Product Name']}
  </h1>
- 
- <div className="flex items-center gap-6">
- <button 
+ <div className="w-20 h-[2px] bg-red-600 mb-8"></div>
+
+ <div className="flex items-center gap-10 mb-10">
+ <button
  onClick={() => transitionTo('contact')}
- className="bg-red-600 text-white px-8 py-4 font-bold text-xs tracking-widest hover:bg-red-700 hover:shadow-[0_10px_20px_rgba(220,38,38,0.3)] hover:-translate-y-1 transition-all duration-300 flex items-center gap-3"
+ className="flex items-center gap-2 text-red-600 font-medium text-sm hover:text-red-700 transition-colors"
  >
- REQUEST A QUOTE
+ <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+ Contact Us
  </button>
- <button 
- onClick={() => transitionTo('products')}
- className="bg-white/10 backdrop-blur-md text-white border border-white/20 px-8 py-4 font-bold text-xs tracking-widest hover:bg-white hover:text-slate-900 transition-all duration-300"
+ <a
+ href="https://wa.me/8613121076570"
+ target="_blank"
+ rel="noopener noreferrer"
+ className="flex items-center gap-2 text-red-600 font-medium text-sm hover:text-red-700 transition-colors"
  >
- BACK TO FLEET
- </button>
- </div>
- </div>
+ <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413"/></svg>
+ Chat Now
+ </a>
  </div>
 
- {/* 详情内容区 */}
- <div className="w-full max-w-[1400px] mx-auto px-12 py-24 flex flex-col lg:flex-row gap-16 flex-1">
- 
- {/* 左侧：富文本描述内容 */}
- <div className="w-full lg:w-[70%]">
- <div className="bg-white p-10 md:p-16 shadow-[0_10px_40px_rgba(0,0,0,0.03)] border border-slate-100">
- <h2 className="text-2xl font-black text-slate-900 mb-8 flex items-center gap-4 border-b border-slate-100 pb-6">
- <div className="w-2 h-8 bg-red-600 "></div>
- Product Overview
- </h2>
- 
- <div 
- ref={detailContentRef}
- className="product-html-content"
- dangerouslySetInnerHTML={{ 
- __html: selectedProduct['Description HTML'] || '<p class="text-slate-500">No detailed description available for this product.</p>' 
- }}
- />
- </div>
- </div>
-
- {/* 右侧：吸顶联系卡片 & 快速参数 */}
- <div className="w-full lg:w-[30%] shrink-0">
- <div className="sticky top-32 flex flex-col gap-8">
- 
- {/* 产品缩略图卡片 */}
- <div className="bg-white p-6 shadow-[0_10px_40px_rgba(0,0,0,0.03)] border border-slate-100 flex flex-col items-center">
- <div className="w-full aspect-[4/3] bg-slate-50 overflow-hidden mb-6 flex items-center justify-center p-4">
- <img src={selectedProduct.Thumbnail || 'https://via.placeholder.com/400'} alt="Thumbnail" className="w-full h-full object-contain mix-blend-multiply" />
- </div>
- <div className="w-full">
- <div className="text-[10px] text-red-500 font-bold uppercase tracking-widest mb-2">Category</div>
- <div className="text-sm font-bold text-slate-900 mb-4">{selectedProduct.Category}</div>
- <button onClick={() => transitionTo('contact')} className="w-full py-4 bg-[#0a0f1c] text-white font-bold text-xs tracking-widest hover:bg-red-600 transition-colors duration-300">
+ <button
+ onClick={() => transitionTo('contact')}
+ className="w-full py-4 bg-red-600 text-white font-bold text-xs tracking-widest hover:bg-red-700 hover:shadow-[0_10px_20px_rgba(220,38,38,0.3)] transition-all duration-300"
+ >
  INQUIRE NOW
  </button>
  </div>
  </div>
+ </div>
 
- {/* 快速联系支持卡片 */}
- <div className="bg-red-600 p-8 shadow-[0_20px_40px_rgba(220,38,38,0.2)] text-white relative overflow-hidden group">
- <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 blur-2xl transform translate-x-10 -translate-y-10 group-hover:scale-150 transition-transform duration-700"></div>
- <h3 className="text-xl font-bold mb-4">Need Customization?</h3>
- <p className="text-red-100 text-sm leading-relaxed mb-8">
- Our engineering team can customize the battery, motor, and seating capacity according to your specific scenario requirements.
- </p>
- <div className="flex items-center gap-4">
- <div className="w-12 h-12 bg-white text-red-600 flex items-center justify-center shrink-0">
- <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+ {/* 下方：产品详情描述 */}
+ <div className="w-full max-w-[1400px] mx-auto px-12 pb-24">
+ <div className="flex items-center gap-3 mb-6 border-b border-slate-200 pb-4">
+ <div className="w-1 h-6 bg-red-600"></div>
+ <h2 className="text-lg font-bold text-slate-900">Product Description</h2>
  </div>
- <div>
- <div className="text-[10px] text-red-200 tracking-widest uppercase mb-1">24/7 Hotline</div>
- <div className="font-bold">+86 400 123 4567</div>
- </div>
- </div>
- </div>
- 
- </div>
- </div>
- 
+ <div
+ ref={detailContentRef}
+ className="product-html-content"
+ dangerouslySetInnerHTML={{
+ __html: selectedProduct['Description HTML'] || '<p class="text-slate-500">No detailed description available for this product.</p>'
+ }}
+ />
  </div>
  </>
  )}
@@ -1070,9 +1065,8 @@ export default function Home() {
  <div className="absolute inset-0 bg-black/50 z-10"></div>
  <img src="/img/banner.png" alt="About Us Banner" className="absolute inset-0 w-full h-full object-cover opacity-60" />
  <div className="relative z-20 text-center px-12">
- <span className="text-red-500 font-bold tracking-[0.3em] uppercase text-xs mb-6 block">Our Heritage & Vision</span>
  <h1 className="text-5xl md:text-7xl font-black font-yahei text-white mb-6 drop-shadow-lg">
- About Us.
+ About Us
  </h1>
  <div className="w-20 h-1 bg-red-600 mx-auto "></div>
  </div>
@@ -1104,21 +1098,6 @@ export default function Home() {
  </p>
  </div>
  
- {/* 数据统计网格 */}
- <div className="grid grid-cols-2 md:grid-cols-3 gap-10 w-full pt-8 border-t border-slate-100">
- <div>
- <div className="text-4xl font-black text-slate-900 mb-2 flex items-baseline">2,000<span className="text-red-600 text-2xl ml-1">+</span></div>
- <div className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Acres Area</div>
- </div>
- <div>
- <div className="text-4xl font-black text-slate-900 mb-2 flex items-baseline">1,500<span className="text-red-600 text-2xl ml-1">+</span></div>
- <div className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Employees</div>
- </div>
- <div>
- <div className="text-4xl font-black text-slate-900 mb-2 flex items-baseline">400<span className="text-red-600 text-2xl ml-1">k</span></div>
- <div className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Annual Output</div>
- </div>
- </div>
  </div>
  </div>
  </div>
@@ -1145,7 +1124,7 @@ export default function Home() {
  </div>
 
  {/* 右侧：产品视频 */}
- <div className="w-full lg:w-1/2 max-w-[450px] mx-auto relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.4)]">
+ <div className="w-full lg:w-1/2 max-w-[555px] mx-auto relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.4)]">
  <video
  src="/img/about.mp4"
  autoPlay
@@ -1175,9 +1154,8 @@ export default function Home() {
  <div className="absolute inset-0 bg-black/50 z-10"></div>
  <img src="/img/banner.png" alt="Services Banner" className="absolute inset-0 w-full h-full object-cover opacity-60" />
  <div className="relative z-20 text-center px-12">
- <span className="text-red-500 font-bold tracking-[0.3em] uppercase text-xs mb-6 block">End-To-End Support</span>
  <h1 className="text-5xl md:text-7xl font-black font-yahei text-white mb-6 drop-shadow-lg">
- Our Services.
+ Services
  </h1>
  <div className="w-20 h-1 bg-red-600 mx-auto "></div>
  </div>
@@ -1225,10 +1203,9 @@ export default function Home() {
  
  <div className="w-full max-w-[1400px] mx-auto relative z-10 flex flex-col md:flex-row items-center justify-between gap-16">
  <div className="w-full md:w-1/2">
- <span className="text-red-500 font-bold tracking-widest uppercase text-xs mb-4 block">Our Commitment</span>
- <h2 className="text-4xl md:text-5xl font-black text-white mb-8 leading-tight">Global Quality<br/>Assurance.</h2>
+ <h2 className="text-4xl md:text-5xl font-black text-white mb-8 leading-tight">Our Commitment - Global Quality Assurance</h2>
  <p className="text-slate-400 leading-relaxed mb-10">
- Every vehicle leaving our facility undergoes rigorous multi-point inspections. We offer comprehensive warranty coverage and genuine replacement parts to keep your fleet running smoothly worldwide.
+ Every vehicle we leave the factory undergoes strict multi-point inspection, and we have a perfect after-sales service team that can meet your various needs.
  </p>
  <div className="grid grid-cols-2 gap-8">
  <div>
@@ -1273,9 +1250,8 @@ export default function Home() {
  <div className="absolute inset-0 bg-black/60 z-10"></div>
  <img src="/img/canton-fair.png" alt="Contact Banner" className="absolute inset-0 w-full h-full object-cover opacity-60" />
  <div className="relative z-20 text-center px-12">
- <span className="text-red-500 font-bold tracking-[0.3em] uppercase text-xs mb-6 block">We're Here to Help</span>
  <h1 className="text-5xl md:text-7xl font-black font-yahei text-white mb-6 drop-shadow-lg">
- Contact Us.
+ Contact Us
  </h1>
  <div className="w-20 h-1 bg-red-600 mx-auto "></div>
  </div>
@@ -1287,9 +1263,8 @@ export default function Home() {
  
  {/* 左侧：联系信息与标语 */}
  <div className="w-full lg:w-[40%] flex flex-col items-start justify-center">
- <span className="text-xs font-bold text-red-600 tracking-[0.3em] uppercase mb-6">Get In Touch</span>
  <h2 className="text-4xl md:text-6xl font-black font-yahei text-slate-900 mb-8 tracking-tighter leading-tight">
- Let's Start a<br/>Conversation.
+ Let's Start a<br/>Conversation
  </h2>
  <p className="text-slate-600 leading-relaxed mb-12 text-sm md:text-base font-medium max-w-md">
  Whether you have a question about our electric vehicles, pricing, or customized solutions, our global team is ready to answer all your questions.
@@ -1394,48 +1369,6 @@ export default function Home() {
  </div>
  </div>
 
- </div>
- </div>
-
- {/* 分支机构及网点区 */}
- <div className="w-full bg-slate-50 py-24 px-12 border-t border-slate-100">
- <div className="w-full max-w-[1400px] mx-auto">
- <div className="text-center mb-16">
- <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">Our Global Offices</h2>
- <p className="text-slate-500 max-w-2xl mx-auto">Operating across multiple time zones to provide seamless support and vehicle delivery to our worldwide partners.</p>
- </div>
- 
- <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
- {/* Office 1 */}
- <div className="bg-white p-8 border border-slate-200 hover:shadow-xl hover:-translate-y-2 transition-all duration-500 group">
- <div className="w-12 h-12 bg-red-50 text-red-600 flex items-center justify-center mb-6 group-hover:bg-red-600 group-hover:text-white transition-colors">
- <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
- </div>
- <h3 className="text-xl font-bold text-slate-900 mb-2">China Headquarters</h3>
- <p className="text-sm text-slate-500 mb-4">Main manufacturing base and global operations center.</p>
- <p className="text-sm font-medium text-slate-700">Zaozhuang City, Shandong Province</p>
- </div>
-
- {/* Office 2 */}
- <div className="bg-white p-8 border border-slate-200 hover:shadow-xl hover:-translate-y-2 transition-all duration-500 group">
- <div className="w-12 h-12 bg-blue-50 text-blue-600 flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
- <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
- </div>
- <h3 className="text-xl font-bold text-slate-900 mb-2">Southeast Asia Hub</h3>
- <p className="text-sm text-slate-500 mb-4">Regional distribution, sales, and technical support.</p>
- <p className="text-sm font-medium text-slate-700">Bangkok, Thailand</p>
- </div>
-
- {/* Office 3 */}
- <div className="bg-white p-8 border border-slate-200 hover:shadow-xl hover:-translate-y-2 transition-all duration-500 group">
- <div className="w-12 h-12 bg-emerald-50 text-emerald-600 flex items-center justify-center mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
- <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>
- </div>
- <h3 className="text-xl font-bold text-slate-900 mb-2">Europe Office</h3>
- <p className="text-sm text-slate-500 mb-4">Market development and compliance certification.</p>
- <p className="text-sm font-medium text-slate-700">Frankfurt, Germany</p>
- </div>
- </div>
  </div>
  </div>
 
