@@ -1124,7 +1124,7 @@ export default function Home() {
  </div>
 
  {/* CTA / Join Us 区域 - 左右双栏 */}
- <div className="w-full bg-gradient-to-br from-slate-900 via-[#0a0f1c] to-slate-900 py-24 px-12 border-t border-slate-800 relative overflow-hidden">
+ <div className="w-full bg-gradient-to-br from-slate-900 via-[#0a0f1c] to-slate-900 px-12 border-t border-slate-800 relative overflow-hidden">
  <div className="absolute top-0 right-0 w-[40%] h-full bg-red-600/5 blur-[120px] pointer-events-none"></div>
  <div className="w-full max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-16 items-center relative z-10">
  {/* 左侧：文案 + CTA */}
@@ -1145,14 +1145,14 @@ export default function Home() {
  </div>
 
  {/* 右侧：产品视频 */}
- <div className="w-full lg:w-1/2 relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)]">
+ <div className="w-full lg:w-1/2 relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.4)]">
  <video
  src="/img/about.mp4"
  autoPlay
  loop
  muted
  playsInline
- className="w-full h-[500px] object-cover"
+ className="w-full h-auto object-contain"
  />
  </div>
  </div>
