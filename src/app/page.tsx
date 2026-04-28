@@ -1145,7 +1145,7 @@ export default function Home() {
  </div>
 
  {/* 右侧：产品视频 */}
- <div className="w-full lg:w-1/2 relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.4)]">
+ <div className="w-full lg:w-1/2 max-w-[450px] mx-auto relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.4)]">
  <video
  src="/img/about.mp4"
  autoPlay
