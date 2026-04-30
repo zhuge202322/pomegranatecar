@@ -409,8 +409,8 @@ export default function Home() {
  
  <div className="hero-content relative z-10 w-full max-w-[1400px] mx-auto px-12 flex flex-col lg:flex-row items-center justify-between h-full pt-16 will-change-transform">
  
- {/* 左侧：文案内容区 (磨砂玻璃面板) */}
- <div className="flex flex-col items-start text-left w-full lg:w-auto lg:max-w-[60%] bg-white/10 backdrop-blur-md border border-white/20 px-8 py-10 md:px-12 md:py-12 shadow-[0_20px_60px_rgba(0,0,0,0.4)]">
+ {/* 左侧：文案内容区 */}
+ <div className="flex flex-col items-start text-left w-full lg:w-[60%]">
  <div className="flex items-center gap-4 text-[10px] font-bold text-blue-300 tracking-[0.3em] uppercase mb-8">
  <div className="w-8 h-[2px] bg-blue-300"></div>
  Resort & Leisure
