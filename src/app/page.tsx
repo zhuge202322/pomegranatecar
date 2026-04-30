@@ -401,22 +401,26 @@ export default function Home() {
  alt="Hero Banner" 
  className="w-full h-full object-cover object-center" 
  />
+ {/* 整体亮度遮罩层 */}
+ <div className="absolute inset-0 bg-black/30"></div>
+ {/* 左侧深色径向渐变，提升文字对比 */}
+ <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent"></div>
  </div>
  
  <div className="hero-content relative z-10 w-full max-w-[1400px] mx-auto px-12 flex flex-col lg:flex-row items-center justify-between h-full pt-16 will-change-transform">
  
- {/* 左侧：文案内容区 */}
- <div className="flex flex-col items-start text-left w-full lg:w-[45%]">
- <div className="flex items-center gap-4 text-[10px] font-bold text-blue-400 tracking-[0.3em] uppercase mb-8">
- <div className="w-8 h-[2px] bg-blue-400"></div>
+ {/* 左侧：文案内容区 (磨砂玻璃面板) */}
+ <div className="flex flex-col items-start text-left w-full lg:w-auto lg:max-w-[60%] bg-white/10 backdrop-blur-md border border-white/20 px-8 py-10 md:px-12 md:py-12 shadow-[0_20px_60px_rgba(0,0,0,0.4)]">
+ <div className="flex items-center gap-4 text-[10px] font-bold text-blue-300 tracking-[0.3em] uppercase mb-8">
+ <div className="w-8 h-[2px] bg-blue-300"></div>
  Resort & Leisure
  </div>
  
- <h1 className="mb-8 text-blue-600 drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] text-2xl md:text-3xl lg:text-[2.5rem] font-black tracking-tight whitespace-nowrap w-max max-w-none">
+ <h1 className="mb-8 text-blue-200 drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] text-2xl md:text-3xl lg:text-[2.5rem] font-black tracking-tight whitespace-nowrap w-max max-w-none">
  Electric scooters - make travel more convenient
  </h1>
  
- <p className="text-blue-700 text-sm md:text-base leading-relaxed max-w-md mb-12 tracking-wide font-[family-name:var(--font-inter)] drop-shadow-md">
+ <p className="text-blue-100 text-sm md:text-base leading-relaxed max-w-2xl mb-12 tracking-wide font-[family-name:var(--font-inter)] drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)]">
  We focus on manufacturing low-speed electric scooters to make travel more convenient and efficient, and can provide users with customized vehicle solutions for multiple scenarios and multiple needs.
  </p>
  
