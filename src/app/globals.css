@@ -93,13 +93,17 @@
  margin-bottom: 1.5rem;
 }
 .product-html-content img {
- max-width: 800px;
- width: 100%;
- height: auto;
- max-height: 600px;
+ width: 800px !important;
+ max-width: 100% !important;
+ height: auto !important;
+ margin: 1.5rem auto !important;
+ display: block !important;
  object-fit: contain;
- margin: 2rem auto;
- display: block;
+}
+.product-html-content p,
+.product-html-content div,
+.product-html-content figure {
+ text-align: center;
 }
 .product-html-content table {
  width: 100%;
