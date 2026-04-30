@@ -442,17 +442,6 @@ export default function Home() {
  
  </div>
  
- {/* 底部型号参数等点缀 */}
- <div className="absolute bottom-12 left-12 right-12 flex justify-between items-end z-20 pointer-events-none">
- <div className="text-left">
- <div className="text-[9px] text-white/60 tracking-[0.2em] uppercase mb-2 drop-shadow-md">Platform</div>
- <div className="text-xs text-white font-bold tracking-wider drop-shadow-md">RESORT & SCENIC EDITION</div>
- </div>
- <div className="text-right">
- <div className="text-[9px] text-white/60 tracking-[0.2em] uppercase mb-2 drop-shadow-md">Global Range</div>
- <div className="text-xs text-white font-bold tracking-wider drop-shadow-md">AVAILABLE WORLDWIDE</div>
- </div>
- </div>
  
  {/* 向下滚动提示 */}
  <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center animate-bounce opacity-50">
