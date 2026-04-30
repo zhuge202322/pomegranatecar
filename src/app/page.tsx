@@ -657,8 +657,8 @@ export default function Home() {
  
  {/* 左侧：联系信息与标语 */}
  <div className="w-full lg:w-[40%] flex flex-col items-start justify-center">
- <h2 className="text-3xl md:text-4xl font-black font-yahei text-slate-900 mb-8 tracking-tighter leading-tight">
- Let's Start a<br/>Conversation
+ <h2 className="text-2xl md:text-3xl font-black font-yahei text-slate-900 mb-8 tracking-tight leading-tight whitespace-nowrap">
+ Let's Start a Conversation
  </h2>
  <p className="text-slate-600 leading-relaxed mb-12 text-sm md:text-base font-medium max-w-md">
  Whether you have a question about our electric vehicles, pricing, or customized solutions, our global team is ready to answer all your questions.
@@ -1268,8 +1268,8 @@ export default function Home() {
  
  {/* 左侧：联系信息与标语 */}
  <div className="w-full lg:w-[40%] flex flex-col items-start justify-center">
- <h2 className="text-3xl md:text-4xl font-black font-yahei text-slate-900 mb-8 tracking-tighter leading-tight">
- Let's Start a<br/>Conversation
+ <h2 className="text-2xl md:text-3xl font-black font-yahei text-slate-900 mb-8 tracking-tight leading-tight whitespace-nowrap">
+ Let's Start a Conversation
  </h2>
  <p className="text-slate-600 leading-relaxed mb-12 text-sm md:text-base font-medium max-w-md">
  Whether you have a question about our electric vehicles, pricing, or customized solutions, our global team is ready to answer all your questions.
