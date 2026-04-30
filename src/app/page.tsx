@@ -615,15 +615,15 @@ export default function Home() {
 
  {/* 主显示区：左侧 6 张缩略图（同一列）+ 右侧放大预览 */}
  <div className="w-full max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-8 items-stretch">
- {/* 左侧：缩略图列表 */}
- <div className="w-full lg:w-[220px] shrink-0 flex lg:flex-col gap-3 overflow-x-auto lg:overflow-visible">
+ {/* 左侧：缩略图列表 (桌面端整列高度与右侧预览一致) */}
+ <div className="w-full lg:w-[220px] shrink-0 flex lg:flex-col gap-3 lg:h-[520px] overflow-x-auto lg:overflow-visible">
  {scenariosData.map((scenario, idx) => {
  const isActive = activeScenario === idx;
  return (
  <div
  key={idx}
  onClick={() => setActiveScenario(idx)}
- className={`relative shrink-0 w-[150px] h-[90px] lg:w-full lg:h-[90px] cursor-pointer overflow-hidden border-2 transition-all duration-300 ${isActive ? 'border-red-600 shadow-[0_10px_20px_rgba(220,38,38,0.25)] scale-[1.02]' : 'border-transparent hover:border-red-300 opacity-70 hover:opacity-100'}`}
+ className={`relative shrink-0 w-[150px] h-[90px] lg:w-full lg:h-auto lg:flex-1 cursor-pointer overflow-hidden border-2 transition-all duration-300 ${isActive ? 'border-red-600 shadow-[0_10px_20px_rgba(220,38,38,0.25)] scale-[1.02]' : 'border-transparent hover:border-red-300 opacity-70 hover:opacity-100'}`}
  >
  <img src={scenario.bgImg} alt={scenario.title} className="w-full h-full object-cover" />
  <div className={`absolute inset-0 bg-black/30 transition-opacity duration-300 ${isActive ? 'opacity-0' : 'opacity-100'}`}></div>
