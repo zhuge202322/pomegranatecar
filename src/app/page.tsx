@@ -68,33 +68,39 @@ const servicesData = [
 const scenariosData = [
  {
  id: "01",
- title: "NIUDIAN pickup truck, taking you beyond your dreams",
- bgImg: "/img/application4-1.webp",
- icon: (
- <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
- <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
- </svg>
- )
+ title: "Beach & Resort Transportation",
+ desc: "Providing comfortable and elegant sightseeing transportation for tourists, perfect for scenic areas and coastal resorts.",
+ bgImg: "/img/scenario-beach.png",
  },
  {
  id: "02",
- title: "Resort mobility, elegant and comfortable experiences",
- bgImg: "/img/application2.webp",
- icon: (
- <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
- <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
- </svg>
- )
+ title: "Village & Community Daily Mobility",
+ desc: "Compact and efficient electric mobility for daily shopping, commuting and community transportation needs.",
+ bgImg: "/img/scenario-village.png",
  },
  {
  id: "03",
- title: "Urban logistics, efficient and eco-friendly delivery",
+ title: "Golf Course Service Vehicles",
+ desc: "Quiet, eco-friendly electric golf carts designed for golf courses, clubs and private estates.",
+ bgImg: "/img/scenario-golf.png",
+ },
+ {
+ id: "04",
+ title: "Pickup Truck for Business & Leisure",
+ desc: "Versatile electric pickup trucks taking you beyond your dreams — work and play combined.",
+ bgImg: "/img/application4-1.webp",
+ },
+ {
+ id: "05",
+ title: "Hotel & Scenic Area Mobility",
+ desc: "Elegant and comfortable electric passenger vehicles for hotels, parks and tourist attractions.",
+ bgImg: "/img/application2.webp",
+ },
+ {
+ id: "06",
+ title: "Urban Logistics & Delivery",
+ desc: "Efficient and eco-friendly delivery vehicles designed for last-mile urban logistics.",
  bgImg: "/img/shipfnegmian-1.webp",
- icon: (
- <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
- <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
- </svg>
- )
  }
 ];
 
@@ -228,12 +234,13 @@ export default function Home() {
  
  {/* 列 1: 品牌与引导 */}
  <div className="w-full md:w-1/4 flex flex-col items-start">
- <div className="mb-4 md:mb-8 flex items-center -ml-4">
- <img src="/img/logo.png" alt="Company Logo" className="h-32 md:h-[180px] w-auto object-contain" />
+ <div className="mb-6 flex items-baseline gap-2 leading-none">
+ <span className="text-3xl md:text-4xl font-black text-red-600 tracking-tight">Pomegranate</span>
+ <span className="text-2xl md:text-3xl font-black text-red-600 tracking-tight">EV</span>
  </div>
- <h4 className="text-base font-bold text-slate-900 mb-2">Are You Ready To Start?</h4>
+ <h4 className="text-base font-bold text-slate-900 mb-2">Are you ready to get started?</h4>
  <p className="text-xs text-slate-500 leading-relaxed mb-6 font-medium">Contact us to tailor the most suitable product for your business.</p>
- <button className="bg-red-600 text-white px-8 py-3 font-bold text-[10px] tracking-widest hover:bg-red-700 hover:shadow-[0_10px_20px_rgba(220,38,38,0.2)] hover:-translate-y-0.5 transition-all duration-300 flex items-center gap-3 group">
+ <button onClick={() => transitionTo('contact')} className="bg-red-600 text-white px-8 py-3 font-bold text-[10px] tracking-widest hover:bg-red-700 hover:shadow-[0_10px_20px_rgba(220,38,38,0.2)] hover:-translate-y-0.5 transition-all duration-300 flex items-center gap-3 group">
  CONTACT US
  <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
  </button>
@@ -243,10 +250,10 @@ export default function Home() {
  <div className="w-full md:w-1/4 flex flex-col items-start lg:pl-10">
  <h4 className="text-sm font-black text-slate-900 tracking-widest uppercase mb-8">PRODUCTS</h4>
  <ul className="flex flex-col gap-4">
- {['Low Speed Electric Car', 'Electric Passenger Tricycle', 'Electric Pickup Truck', 'Electric Tuktuk', 'Electric Cargo Tricycle'].map((item, i) => (
- <li key={i} className="flex items-center gap-3 group cursor-pointer" onClick={() => { transitionTo('products'); setActiveCategory(item); }}>
+ {categories.map((cat, i) => (
+ <li key={i} className="flex items-center gap-3 group cursor-pointer" onClick={() => { setActiveCategory(cat as string); transitionTo('products'); }}>
  <span className="text-red-600 font-black text-sm transform group-hover:translate-x-1 transition-transform duration-300">&rsaquo;</span>
- <span className="text-[13px] text-slate-500 font-medium group-hover:text-red-600 transition-colors duration-300">{item}</span>
+ <span className="text-[13px] text-slate-500 font-medium group-hover:text-red-600 transition-colors duration-300 capitalize">{cat as string}</span>
  </li>
  ))}
  </ul>
@@ -256,10 +263,14 @@ export default function Home() {
  <div className="w-full md:w-1/4 flex flex-col items-start">
  <h4 className="text-sm font-black text-slate-900 tracking-widest uppercase mb-8">INFORMATION</h4>
  <ul className="flex flex-col gap-4">
- {['About Us', 'News', 'Services', 'Download', 'Contact Us'].map((item, i) => (
- <li key={i} className="flex items-center gap-3 group cursor-pointer">
+ {[
+ { label: 'About Us', target: 'about' },
+ { label: 'Services', target: 'services' },
+ { label: 'Contact Us', target: 'contact' },
+ ].map((item, i) => (
+ <li key={i} className="flex items-center gap-3 group cursor-pointer" onClick={() => transitionTo(item.target)}>
  <span className="text-red-600 font-black text-sm transform group-hover:translate-x-1 transition-transform duration-300">&rsaquo;</span>
- <span className="text-[13px] text-slate-500 font-medium group-hover:text-red-600 transition-colors duration-300">{item}</span>
+ <span className="text-[13px] text-slate-500 font-medium group-hover:text-red-600 transition-colors duration-300">{item.label}</span>
  </li>
  ))}
  </ul>
@@ -289,7 +300,7 @@ export default function Home() {
 
  {/* Copyright 底部版权条 */}
  <div className="w-full max-w-[1400px] mx-auto mt-24 pt-8 border-t border-slate-200 flex flex-col md:flex-row items-center justify-between">
- <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">© 2026 Beijing  Pomegranate Technology Co., Ltd. All Rights Reserved.</p>
+ <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">© 2026 Beijing Dahong Pomegranate Technology Co., Ltd. All Rights Reserved.</p>
  <div className="flex items-center gap-8 mt-4 md:mt-0">
  <span className="text-[10px] text-slate-400 font-bold hover:text-red-600 cursor-pointer uppercase tracking-widest transition-colors">Privacy Policy</span>
  <span className="text-[10px] text-slate-400 font-bold hover:text-red-600 cursor-pointer uppercase tracking-widest transition-colors">Terms of Service</span>
@@ -592,57 +603,57 @@ export default function Home() {
  </div>
  </div>
 
- {/* 第六屏：产品用途场景 (Product Scenarios) - 玻璃态切换 */}
- <div className="relative w-full h-[800px] z-20 flex overflow-hidden bg-black">
- {/* 背景图层：根据 activeScenario 切换背景，带淡入淡出 */}
- {scenariosData.map((scenario, idx) => (
- <div 
- key={idx} 
- className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out ${activeScenario === idx ? 'opacity-100' : 'opacity-0'}`}
- >
- <img src={scenario.bgImg} alt="Scenario Background" className="w-full h-full object-cover opacity-80" />
- </div>
- ))}
+ {/* 第六屏：Usage Scenarios (6 张图一列 + 点击放大预览) */}
+ <div className="relative w-full bg-gradient-to-b from-slate-50 to-white py-20 px-12 z-20 flex flex-col items-center">
+ {/* 居中标题 */}
+ <h2 className="text-[clamp(2rem,4vw,3.25rem)] font-black font-yahei text-slate-900 text-center tracking-tighter leading-none mb-4">
+ Usage scenarios
+ </h2>
+ <p className="text-slate-500 text-sm md:text-base text-center max-w-2xl mb-12 font-medium">
+ Explore more usage scenarios and support product customization.
+ </p>
 
- {/* 悬浮控制层：3个等宽列 */}
- <div className="absolute inset-0 w-full flex z-10">
+ {/* 主显示区：左侧 6 张缩略图（同一列）+ 右侧放大预览 */}
+ <div className="w-full max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-8 items-stretch">
+ {/* 左侧：缩略图列表 */}
+ <div className="w-full lg:w-[220px] shrink-0 flex lg:flex-col gap-3 overflow-x-auto lg:overflow-visible">
  {scenariosData.map((scenario, idx) => {
  const isActive = activeScenario === idx;
  return (
- <div 
+ <div
  key={idx}
- onMouseEnter={() => setActiveScenario(idx)}
- className={`flex-1 relative border-r border-white/20 last:border-r-0 transition-all duration-700 cursor-pointer overflow-hidden ${isActive ? 'bg-[#0a0f1c]/50 backdrop-blur-md' : 'bg-black/10 hover:bg-white/5'}`}
+ onClick={() => setActiveScenario(idx)}
+ className={`relative shrink-0 w-[150px] h-[90px] lg:w-full lg:h-[90px] cursor-pointer overflow-hidden border-2 transition-all duration-300 ${isActive ? 'border-red-600 shadow-[0_10px_20px_rgba(220,38,38,0.25)] scale-[1.02]' : 'border-transparent hover:border-red-300 opacity-70 hover:opacity-100'}`}
  >
- {/* 内部内容 (仅在激活时完全显示) */}
- <div className={`absolute inset-0 flex flex-col items-center justify-center text-center p-12 transition-all duration-700 delay-100 ${isActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8 pointer-events-none'}`}>
- 
- {/* Icon 区域 */}
- <div className="w-20 h-20 bg-red-600 flex items-center justify-center border-[6px] border-[#0a0f1c]/50 mb-10 shadow-[0_0_30px_rgba(220,38,38,0.5)]">
- {scenario.icon}
- </div>
-
- {/* 标题文案 */}
- <h3 className="text-3xl font-bold text-white mb-10 leading-snug drop-shadow-[0_5px_10px_rgba(0,0,0,0.8)] max-w-[80%]">
- {scenario.title}
- </h3>
-
- {/* 竖线分隔 */}
- <div className="w-[1px] h-16 bg-white/40 mb-10"></div>
-
- {/* 按钮 */}
- <button className="px-10 py-3 border border-white/60 text-white text-xs font-bold tracking-[0.2em] hover:bg-white hover:text-black hover:border-white transition-colors duration-300 backdrop-blur-sm">
- READ MORE
- </button>
- </div>
-
- {/* 底部巨大序号水印 */}
- <div className={`absolute bottom-[-2%] left-8 text-[10rem] font-black leading-none select-none pointer-events-none font-[family-name:var(--font-inter)] transition-all duration-700 ${isActive ? 'text-white/20' : 'text-white/10'}`}>
- {scenario.id}
- </div>
+ <img src={scenario.bgImg} alt={scenario.title} className="w-full h-full object-cover" />
+ <div className={`absolute inset-0 bg-black/30 transition-opacity duration-300 ${isActive ? 'opacity-0' : 'opacity-100'}`}></div>
+ <div className={`absolute top-1 left-2 text-[10px] font-black tracking-widest ${isActive ? 'text-red-600' : 'text-white'}`}>{scenario.id}</div>
  </div>
  );
  })}
+ </div>
+
+ {/* 右侧：放大预览 */}
+ <div className="flex-1 relative h-[420px] md:h-[520px] overflow-hidden bg-black">
+ {scenariosData.map((scenario, idx) => (
+ <div
+ key={idx}
+ className={`absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out ${activeScenario === idx ? 'opacity-100' : 'opacity-0'}`}
+ >
+ <img src={scenario.bgImg} alt={scenario.title} className="w-full h-full object-cover" />
+ <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent"></div>
+ <div className="absolute bottom-0 left-0 right-0 p-10 md:p-14 text-white">
+ <div className="text-xs font-bold text-red-400 tracking-[0.3em] uppercase mb-4">Scenario {scenario.id}</div>
+ <h3 className="text-2xl md:text-4xl font-black mb-4 leading-tight drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]">
+ {scenario.title}
+ </h3>
+ <p className="text-slate-200 text-sm md:text-base leading-relaxed max-w-2xl drop-shadow-md">
+ {scenario.desc}
+ </p>
+ </div>
+ </div>
+ ))}
+ </div>
  </div>
  </div>
 
