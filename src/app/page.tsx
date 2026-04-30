@@ -179,12 +179,35 @@ export default function Home() {
  }
  }, [currentId, selectedProduct]);
 
- const transitionTo = (targetId: string) => {
+ // 浏览器前进/后退按钮集成：初始写入 home 状态 + 监听 popstate
+ useEffect(() => {
+ if (typeof window === 'undefined') return;
+ // 初始替换当前历史项，避免首次 back 直接离开站点
+ if (!window.history.state || !window.history.state.pageId) {
+ window.history.replaceState({ pageId: 'home' }, '', window.location.pathname);
+ }
+ const handlePop = (e: PopStateEvent) => {
+ const targetId = e.state?.pageId || 'home';
+ transitionToRef.current?.(targetId, true);
+ };
+ window.addEventListener('popstate', handlePop);
+ return () => window.removeEventListener('popstate', handlePop);
+ }, []);
+
+ // 用 ref 承载 transitionTo，供 popstate 监听器拿到最新版本
+ const transitionToRef = useRef<((id: string, skip?: boolean) => void) | null>(null);
+
+ const transitionTo = (targetId: string, skipHistory = false) => {
  if (targetId === currentId || isTransitioning.current) return;
  isTransitioning.current = true;
 
  const outPage = document.getElementById(currentId);
  const inPage = document.getElementById(targetId);
+
+ // 将页面切换写入浏览器历史，使后退按钮可在网站内回退
+ if (!skipHistory && typeof window !== 'undefined') {
+ window.history.pushState({ pageId: targetId }, '', `#${targetId}`);
+ }
 
  setCurrentId(targetId);
 
@@ -218,6 +241,9 @@ export default function Home() {
  ease: "power3.inOut" 
  }, 0.1);
  };
+
+ // 每次渲染同步最新 transitionTo 到 ref
+ transitionToRef.current = transitionTo;
 
  const navItems = [
  { id: 'home', label: 'Home' },
