@@ -412,11 +412,11 @@ export default function Home() {
  Resort & Leisure
  </div>
  
- <h1 className="mb-8 text-white drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] text-2xl md:text-3xl lg:text-[2.5rem] font-black tracking-tight whitespace-nowrap w-max max-w-none">
+ <h1 className="mb-8 text-blue-600 drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] text-2xl md:text-3xl lg:text-[2.5rem] font-black tracking-tight whitespace-nowrap w-max max-w-none">
  Electric scooters - make travel more convenient
  </h1>
  
- <p className="text-slate-300 text-sm md:text-base leading-relaxed max-w-md mb-12 tracking-wide font-[family-name:var(--font-inter)] drop-shadow-md">
+ <p className="text-blue-700 text-sm md:text-base leading-relaxed max-w-md mb-12 tracking-wide font-[family-name:var(--font-inter)] drop-shadow-md">
  We focus on manufacturing low-speed electric scooters to make travel more convenient and efficient, and can provide users with customized vehicle solutions for multiple scenarios and multiple needs.
  </p>
  
@@ -641,16 +641,6 @@ export default function Home() {
  className={`absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out ${activeScenario === idx ? 'opacity-100' : 'opacity-0'}`}
  >
  <img src={scenario.bgImg} alt={scenario.title} className="w-full h-full object-cover" />
- <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent"></div>
- <div className="absolute bottom-0 left-0 right-0 p-10 md:p-14 text-white">
- <div className="text-xs font-bold text-red-400 tracking-[0.3em] uppercase mb-4">Scenario {scenario.id}</div>
- <h3 className="text-2xl md:text-4xl font-black mb-4 leading-tight drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]">
- {scenario.title}
- </h3>
- <p className="text-slate-200 text-sm md:text-base leading-relaxed max-w-2xl drop-shadow-md">
- {scenario.desc}
- </p>
- </div>
  </div>
  ))}
  </div>
@@ -663,7 +653,7 @@ export default function Home() {
  
  {/* 左侧：联系信息与标语 */}
  <div className="w-full lg:w-[40%] flex flex-col items-start justify-center">
- <h2 className="text-4xl md:text-6xl font-black font-yahei text-slate-900 mb-8 tracking-tighter leading-tight">
+ <h2 className="text-3xl md:text-4xl font-black font-yahei text-slate-900 mb-8 tracking-tighter leading-tight">
  Let's Start a<br/>Conversation
  </h2>
  <p className="text-slate-600 leading-relaxed mb-12 text-sm md:text-base font-medium max-w-md">
@@ -1274,7 +1264,7 @@ export default function Home() {
  
  {/* 左侧：联系信息与标语 */}
  <div className="w-full lg:w-[40%] flex flex-col items-start justify-center">
- <h2 className="text-4xl md:text-6xl font-black font-yahei text-slate-900 mb-8 tracking-tighter leading-tight">
+ <h2 className="text-3xl md:text-4xl font-black font-yahei text-slate-900 mb-8 tracking-tighter leading-tight">
  Let's Start a<br/>Conversation
  </h2>
  <p className="text-slate-600 leading-relaxed mb-12 text-sm md:text-base font-medium max-w-md">
